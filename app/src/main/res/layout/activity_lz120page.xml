@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="?android:attr/colorBackground"
+    tools:context=".lz120page">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/lz120"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/lz120" />
+
+            <TextView
+                android:id="@+id/lz120title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lz120"
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp" />
+
+            <RadioGroup
+                android:id="@+id/lz120sausage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/lz120beef"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="荷蘭腸(含有豬牛成份)" />
+
+                <RadioButton
+                    android:id="@+id/lz120vegan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="轉素腸" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-24dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lz120veganPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="+HK$18.0" />
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/lz120pork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="轉紐綸堡腸(含有豬肉成份)" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/lzsnack1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="請選擇第一款小食或飲品"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/lz120snack1RB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/lz120sff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="細薯條" />
+
+                <RadioButton
+                    android:id="@+id/lz120bff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="大薯條" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-24dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lz120bffPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="+HK$8.0" />
+
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/lz120corn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="粟米" />
+
+                <RadioButton
+                    android:id="@+id/lz120cola"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="可樂" />
+
+                <RadioButton
+                    android:id="@+id/lz120creamsoda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="忌廉" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/lz120snack2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="請選擇第二款小食或飲品"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/lz120snack2RB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/lz120sff2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="細薯條" />
+
+                <RadioButton
+                    android:id="@+id/lz120bff2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="大薯條" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-24dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lz120bffPrice2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="+HK$8.0" />
+
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/lz120corn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="粟米" />
+
+                <RadioButton
+                    android:id="@+id/lz120cola2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="可樂" />
+
+                <RadioButton
+                    android:id="@+id/lz120creamsoda2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="忌廉" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="7">
+
+                <ImageButton
+                    android:id="@+id/lz120minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?android:attr/colorBackground"
+                    app:srcCompat="@drawable/minus" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lz120amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:text="0"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/lz120plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?android:attr/colorBackground"
+                    app:srcCompat="@drawable/plus" />
+
+                <ImageButton
+                    android:id="@+id/lz120shoppingcart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="?android:attr/colorBackground"
+                    app:srcCompat="@drawable/shoppingcart" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

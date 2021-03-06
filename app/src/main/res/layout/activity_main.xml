@@ -6,31 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/purple_500"
-        android:gravity="center"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|top"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/MCLeo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MCLeo"
-            android:textSize="24sp" />
+            <ImageView
+                android:id="@+id/zeppelinghotdog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="top|center_horizontal"
+                app:srcCompat="@drawable/zeppelinghotdog" />
 
-        <TextView
-        android:id="@+id/Steve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Steve"
-        android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imblz120"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@android:color/background_light"
+                app:srcCompat="@drawable/lz120" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/lz120"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/background_light"
+                    android:text="@string/lz120" />
+
+                <TextView
+                    android:id="@+id/descriptionlz120"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/descriptionlz120"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
