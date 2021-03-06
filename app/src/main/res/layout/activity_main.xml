@@ -24,6 +24,13 @@
             android:layout_height="wrap_content"
             android:text="MCLeo"
             android:textSize="24sp" />
+
+        <TextView
+        android:id="@+id/Steve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Steve"
+        android:textSize="24sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
