@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">SEHH3143groupProject</string>
+    <string name="lz120">LZ120 火炙芝士辣肉醬熱狗\n$54</string>
+    <string name="descriptionlz120">辣；香腸含有豬牛成份</string>
 </resources>
