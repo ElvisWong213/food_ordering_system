@@ -21,179 +21,89 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/lz120"
+                android:id="@+id/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/lz120" />
+                app:srcCompat="@drawable/white" />
 
             <TextView
-                android:id="@+id/lz120title"
+                android:id="@+id/white_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lz120"
+                android:text="@string/white"
                 android:textColor="@android:color/background_dark"
                 android:textSize="24sp" />
 
-            <RadioGroup
-                android:id="@+id/lz120sausage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/lz120beef"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="荷蘭腸(含有豬牛成份)" />
-
-                <RadioButton
-                    android:id="@+id/lz120vegan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="轉素腸" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="-24dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/lz120veganPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="+HK$18.0" />
-                </LinearLayout>
-
-                <RadioButton
-                    android:id="@+id/lz120pork"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="轉紐綸堡腸(含有豬肉成份)" />
-            </RadioGroup>
-
             <TextView
-                android:id="@+id/lzsnack1"
+                android:id="@+id/snack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="請選擇第一款小食或飲品"
+                android:text="小食"
                 android:textColor="@android:color/background_dark"
-                android:textSize="18sp" />
+                android:textSize="24sp" />
 
-            <RadioGroup
-                android:id="@+id/lz120snack1RB"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/lz120sff"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="細薯條" />
-
-                <RadioButton
-                    android:id="@+id/lz120bff"
+                <CheckBox
+                    android:id="@+id/porkBelly"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="大薯條" />
+                    android:text="豚角煮"
+                    android:textColor="@android:color/darker_gray" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-24dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/lz120bffPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="+HK$8.0" />
-
-                </LinearLayout>
-
-                <RadioButton
-                    android:id="@+id/lz120corn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="粟米" />
-
-                <RadioButton
-                    android:id="@+id/lz120cola"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="可樂" />
-
-                <RadioButton
-                    android:id="@+id/lz120creamsoda"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="忌廉" />
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/lz120snack2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="請選擇第二款小食或飲品"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp" />
-
-            <RadioGroup
-                android:id="@+id/lz120snack2RB"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/lz120sff2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="細薯條" />
-
-                <RadioButton
-                    android:id="@+id/lz120bff2"
+                <TextView
+                    android:id="@+id/porkBellyPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="大薯條" />
+                    android:gravity="right"
+                    android:text="+$25.0" />
+            </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="-24dp"
-                    android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/lz120bffPrice2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="+HK$8.0" />
+                <CheckBox
+                    android:id="@+id/cheeseRicecake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="芝士年糕"
+                    android:textColor="@android:color/darker_gray" />
 
-                </LinearLayout>
-
-                <RadioButton
-                    android:id="@+id/lz120corn2"
+                <TextView
+                    android:id="@+id/cheeseRicecakePrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="粟米" />
+                    android:gravity="right"
+                    android:text="+$12.0" />
+            </LinearLayout>
 
-                <RadioButton
-                    android:id="@+id/lz120cola2"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/dumplings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="烤餃子"
+                    android:textColor="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/dumplingsPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="可樂" />
-
-                <RadioButton
-                    android:id="@+id/lz120creamsoda2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="忌廉" />
-            </RadioGroup>
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="+$30.0" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -202,7 +112,7 @@
                 android:weightSum="7">
 
                 <ImageButton
-                    android:id="@+id/lz120minus"
+                    android:id="@+id/whiteminus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -217,7 +127,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/lz120amount"
+                        android:id="@+id/white_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="bottom"
@@ -226,7 +136,7 @@
                 </LinearLayout>
 
                 <ImageButton
-                    android:id="@+id/lz120plus"
+                    android:id="@+id/whiteplus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -234,7 +144,7 @@
                     app:srcCompat="@drawable/plus" />
 
                 <ImageButton
-                    android:id="@+id/lz120shoppingcart"
+                    android:id="@+id/whiteshoppingcart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
