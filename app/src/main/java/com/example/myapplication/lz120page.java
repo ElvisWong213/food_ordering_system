@@ -19,7 +19,7 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lz120page);
 
-
+        globalvariable.ordering[globalvariable.numOfOrder] = new order(0,"white", 0,false,false,false,false,false);
         ImageButton whiteminus = findViewById(R.id.whiteminus);
         whiteminus.setOnClickListener(this);
         ImageButton whiteplus = findViewById(R.id.whiteplus);
@@ -34,9 +34,13 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 switch (v.getId()) {
                     case R.id.porkBelly:
                         if (checked)
+                        {
                             price += 25;
+                            order.setporkbelly(true);
+                        }
                         else
-                            price -= 25;
+                        {price -= 25;
+                            order.setporkbelly(false);}
                         break;
                 }
             }
@@ -49,9 +53,11 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 switch (v.getId()){
                     case R.id.cheeseRicecake:
                         if (checked)
-                            price += 12;
+                        {price += 12;
+                            order.setCheesericecake(true);}
                         else
-                            price -= 12;
+                        {price -= 12;
+                            order.setCheesericecake(false);}
                         break;
                 }
             }
@@ -64,9 +70,11 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 switch (v.getId()){
                     case R.id.dumplings:
                         if (checked)
-                            price += 30;
+                        {price += 30;
+                            order.setDumplings(true);}
                         else
-                            price -= 30;
+                        {price -= 30;
+                            order.setDumplings(false);}
                         break;
                 }
             }
@@ -78,10 +86,14 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 boolean checked = ((CheckBox) v).isChecked();
                 switch (v.getId()){
                     case R.id.greentea:
-                        if (checked)
+                        if (checked) {
                             price += 18;
-                        else
+                            order.setGreentea(true);
+                        }
+                        else {
                             price -= 18;
+                            order.setGreentea(false);
+                        }
                         break;
                 }
             }
@@ -94,9 +106,14 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 switch (v.getId()){
                     case R.id.ramune:
                         if (checked)
+                        {
                             price += 20;
-                        else
+                            order.setRamune(true);
+                        }
+                        else {
                             price -= 20;
+                            order.setRamune(false);
+                        }
                         break;
                 }
             }
@@ -108,22 +125,32 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
         Intent it = new Intent();
         switch (v.getId()){
             case R.id.whiteminus:
-                if (amount > 0)
+                if (amount > 0) {
                     amount--;
-                else
+                    order.setOrder_amount(amount);
+                }
+                else{
                     amount = 0;
+                    order.setOrder_amount(amount);
+                }
                 white_amount.setText(Integer.toString(amount));
                 break;
             case R.id.whiteplus:
-                if (amount < 99)
+                if (amount < 99) {
                     amount++;
-                else
+                    order.setOrder_amount(amount);
+                }
+                else{
                     amount = 99;
+                    order.setOrder_amount(amount);
+                }
                 white_amount.setText(Integer.toString(amount));
                 break;
             case R.id.whiteshoppingcart:
-                if(amount!=0)
+                if(amount!=0){
+                    globalvariable.numOfOrder++;
                     Toast.makeText(lz120page.this,"Total amount is: "+Integer.toString(amount*price),Toast.LENGTH_LONG).show();
+                }
                 it.setClass(lz120page.this,MainActivity.class);
                 startActivity(it);
                 finish();
