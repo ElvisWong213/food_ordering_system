@@ -52,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="豚角煮"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@android:color/background_dark" />
 
                 <TextView
                     android:id="@+id/porkBellyPrice"
@@ -73,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="芝士年糕"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@android:color/background_dark" />
 
                 <TextView
                     android:id="@+id/cheeseRicecakePrice"
@@ -94,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="烤餃子"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@android:color/background_dark" />
 
                 <TextView
                     android:id="@+id/dumplingsPrice"
@@ -103,6 +103,55 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="+$30.0" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/drink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="飲品"
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/ramune"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="波子汽水" />
+
+                <TextView
+                    android:id="@+id/rumunePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="+$20.0" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/greentea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="大分綠茶" />
+
+                <TextView
+                    android:id="@+id/greenteaPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="+$18.0" />
             </LinearLayout>
 
             <LinearLayout

@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class lz120page extends AppCompatActivity implements View.OnClickListener {
     public int total = 0;
     private int amount = 0, price = 72;
-    CheckBox porkbelly, cheesericecake, dumplings;
+    CheckBox porkbelly, cheesericecake, dumplings, greentea, ramune;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +71,36 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 }
             }
         });
-
+        greentea = findViewById(R.id.greentea);
+        greentea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((CheckBox) v).isChecked();
+                switch (v.getId()){
+                    case R.id.greentea:
+                        if (checked)
+                            price += 18;
+                        else
+                            price -= 18;
+                        break;
+                }
+            }
+        });
+        ramune = findViewById(R.id.ramune);
+        ramune.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((CheckBox) v).isChecked();
+                switch (v.getId()){
+                    case R.id.ramune:
+                        if (checked)
+                            price += 20;
+                        else
+                            price -= 20;
+                        break;
+                }
+            }
+        });
     }
     public void onClick (View v){
 
