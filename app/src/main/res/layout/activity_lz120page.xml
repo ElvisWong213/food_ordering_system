@@ -16,15 +16,40 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/white"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/white" />
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageButton
+                    android:id="@+id/whitehomepage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/homepage" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/white" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/white_title"
@@ -33,6 +58,12 @@
                 android:text="@string/white"
                 android:textColor="@android:color/background_dark"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/descriptionwhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/descriptionwhite" />
 
             <TextView
                 android:id="@+id/snack"
@@ -157,8 +188,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:gravity="bottom"
                 android:orientation="horizontal"
-                android:weightSum="7">
+                android:weightSum="7"
+                tools:layout_editor_absoluteY="446dp">
 
                 <ImageButton
                     android:id="@+id/whiteminus"
@@ -200,8 +234,8 @@
                     android:background="?android:attr/colorBackground"
                     app:srcCompat="@drawable/shoppingcart" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
