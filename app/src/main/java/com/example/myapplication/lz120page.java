@@ -151,6 +151,7 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
             case R.id.whiteshoppingcart:
                 if(amount!=0){
                     globalvariable.numOfOrder++;
+                    order.setPrice(amount*price);
                     Toast.makeText(lz120page.this,"Total amount is: "+Integer.toString(amount*price),Toast.LENGTH_LONG).show();
                 }
             case R.id.whitehomepage:
