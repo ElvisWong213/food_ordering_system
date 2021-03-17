@@ -22,32 +22,42 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="125dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
-                <ImageButton
-                    android:id="@+id/whitehomepage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:scaleType="center"
-                    app:srcCompat="@drawable/homepage" />
-
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                    <ImageView
-                        android:id="@+id/white"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/whitemenu" />
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/whitehomepage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/white" />
-                </LinearLayout>
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:scaleType="center"
+                        app:srcCompat="@drawable/homepage" />
+
+                </FrameLayout>
 
             </LinearLayout>
 
@@ -185,57 +195,67 @@
                     android:text="+$18.0" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:gravity="bottom"
-                android:orientation="horizontal"
-                android:weightSum="7"
-                tools:layout_editor_absoluteY="446dp">
-
-                <ImageButton
-                    android:id="@+id/whiteminus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?android:attr/colorBackground"
-                    app:srcCompat="@drawable/minus" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/white_amount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="bottom"
-                        android:text="0"
-                        android:textSize="24sp" />
-                </LinearLayout>
-
-                <ImageButton
-                    android:id="@+id/whiteplus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?android:attr/colorBackground"
-                    app:srcCompat="@drawable/plus" />
-
-                <ImageButton
-                    android:id="@+id/whiteshoppingcart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?android:attr/colorBackground"
-                    app:srcCompat="@drawable/shoppingcart" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:baselineAligned="false"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:weightSum="7">
+
+            <ImageButton
+                android:id="@+id/whiteminus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/colorBackground"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/minus" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/white_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:text="0"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/whiteplus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/colorBackground"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/plus" />
+
+            <ImageButton
+                android:id="@+id/whiteshoppingcart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?android:attr/colorBackground"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/shoppingcart" />
+        </LinearLayout>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
