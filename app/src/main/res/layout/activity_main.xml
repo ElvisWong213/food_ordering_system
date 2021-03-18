@@ -69,7 +69,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="?android:attr/colorBackground"
-                        android:text="@string/white" />
+                        android:text="@string/white"
+                        app:backgroundTint="#A68064" />
 
                 </LinearLayout>
 
@@ -95,7 +96,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="?android:attr/colorBackground"
-                        android:text="@string/red" />
+                        android:text="@string/red"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -182,16 +184,27 @@
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/cartbackground" />
 
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="180dp"
+                android:layout_height="68dp"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="78dp"
+                android:layout_marginLeft="78dp"
+                android:layout_marginBottom="15dp"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/tenno" />
+
             <ImageButton
                 android:id="@+id/viewshoppingcart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:background="@drawable/shoppingcart2"
-                android:scaleX="0.8"
-                android:scaleY="0.8"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
                 app:srcCompat="@drawable/shoppingcart2" />
 
         </FrameLayout>
