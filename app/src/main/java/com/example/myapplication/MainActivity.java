@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ImageButton viewshoppingcart = findViewById(R.id.viewshoppingcart);
         viewshoppingcart.setOnClickListener(this);
+        Button toRestaurant = findViewById(R.id.toRestaurant);
+        toRestaurant.setOnClickListener(this);
     }
 
     public void onClick(View v){
@@ -58,6 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.viewshoppingcart:
                 it.setClass(MainActivity.this,settlement.class);
+                startActivity(it);
+                finish();
+                break;
+            case R.id.toRestaurant:
+                it.setClass(MainActivity.this,RestaurantMainActivity.class);
                 startActivity(it);
                 finish();
                 break;
