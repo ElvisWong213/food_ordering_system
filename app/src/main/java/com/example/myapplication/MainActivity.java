@@ -24,8 +24,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imred.setOnClickListener(this);
         Button red = findViewById(R.id.red);
         red.setOnClickListener(this);
+        ImageButton imblack = findViewById(R.id.imblack);
+        imblack.setOnClickListener(this);
+        Button black = findViewById(R.id.black);
+        black.setOnClickListener(this);
+        ImageButton imlimited = findViewById(R.id.imlimited);
+        imlimited.setOnClickListener(this);
+        Button limited = findViewById(R.id.limited);
+        limited.setOnClickListener(this);
+        ImageButton imsnack = findViewById(R.id.imsnack);
+        imsnack.setOnClickListener(this);
+        Button snack = findViewById(R.id.snack);
+        snack.setOnClickListener(this);
+        ImageButton imdrink = findViewById(R.id.imdrink);
+        imdrink.setOnClickListener(this);
+        Button drink = findViewById(R.id.drink);
+        drink.setOnClickListener(this);
+
         ImageButton viewshoppingcart = findViewById(R.id.viewshoppingcart);
         viewshoppingcart.setOnClickListener(this);
+        Button toRestaurant = findViewById(R.id.toRestaurant);
+        toRestaurant.setOnClickListener(this);
     }
 
     public void onClick(View v){
@@ -40,8 +59,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.imred:
             case R.id.red:
                 break;
+            case R.id.imblack:
+            case R.id.black:
+                break;
+            case R.id.imlimited:
+            case R.id.limited:
+                break;
+            case R.id.imdrink:
+            case R.id.drink:
+                break;
+            case R.id.imsnack:
+            case R.id.snack:
+                break;
+
             case R.id.viewshoppingcart:
                 it.setClass(MainActivity.this,settlement.class);
+                startActivity(it);
+                finish();
+                break;
+            case R.id.toRestaurant:
+                it.setClass(MainActivity.this,RestaurantMainActivity.class);
                 startActivity(it);
                 finish();
                 break;

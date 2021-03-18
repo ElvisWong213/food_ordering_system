@@ -2,4 +2,11 @@
     <string name="app_name">SEHH3143groupProject</string>
     <string name="lz120">LZ120 火炙芝士辣肉醬熱狗\n$54</string>
     <string name="descriptionlz120">辣；香腸含有豬牛成份</string>
+    <string name="white">white</string>
+    <string name="descriptionwhite">descriptionwhite</string>
+    <string name="red">red</string>
+    <string name="black">black</string>
+    <string name="limited">limited</string>
+    <string name="snack">snack</string>
+    <string name="drink">drink</string>
 </resources>
