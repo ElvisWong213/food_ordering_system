@@ -32,6 +32,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imlimited.setOnClickListener(this);
         Button limited = findViewById(R.id.limited);
         limited.setOnClickListener(this);
+        ImageButton imsnack = findViewById(R.id.imsnack);
+        imsnack.setOnClickListener(this);
+        Button snack = findViewById(R.id.snack);
+        snack.setOnClickListener(this);
+        ImageButton imdrink = findViewById(R.id.imdrink);
+        imdrink.setOnClickListener(this);
+        Button drink = findViewById(R.id.drink);
+        drink.setOnClickListener(this);
 
         ImageButton viewshoppingcart = findViewById(R.id.viewshoppingcart);
         viewshoppingcart.setOnClickListener(this);
@@ -56,6 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.imlimited:
             case R.id.limited:
+                break;
+            case R.id.imdrink:
+            case R.id.drink:
+                break;
+            case R.id.imsnack:
+            case R.id.snack:
                 break;
 
             case R.id.viewshoppingcart:

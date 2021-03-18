@@ -7,4 +7,6 @@
     <string name="red">red</string>
     <string name="black">black</string>
     <string name="limited">limited</string>
+    <string name="snack">snack</string>
+    <string name="drink">drink</string>
 </resources>
