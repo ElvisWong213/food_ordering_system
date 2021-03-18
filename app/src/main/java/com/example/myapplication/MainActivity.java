@@ -24,6 +24,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imred.setOnClickListener(this);
         Button red = findViewById(R.id.red);
         red.setOnClickListener(this);
+        ImageButton imblack = findViewById(R.id.imblack);
+        imblack.setOnClickListener(this);
+        Button black = findViewById(R.id.black);
+        black.setOnClickListener(this);
+        ImageButton imlimited = findViewById(R.id.imlimited);
+        imlimited.setOnClickListener(this);
+        Button limited = findViewById(R.id.limited);
+        limited.setOnClickListener(this);
+
         ImageButton viewshoppingcart = findViewById(R.id.viewshoppingcart);
         viewshoppingcart.setOnClickListener(this);
     }
@@ -40,6 +49,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.imred:
             case R.id.red:
                 break;
+            case R.id.imblack:
+            case R.id.black:
+                break;
+            case R.id.imlimited:
+            case R.id.limited:
+                break;
+
             case R.id.viewshoppingcart:
                 it.setClass(MainActivity.this,settlement.class);
                 startActivity(it);

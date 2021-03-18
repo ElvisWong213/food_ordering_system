@@ -35,7 +35,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
@@ -88,6 +89,66 @@
                         android:layout_height="wrap_content"
                         android:background="?android:attr/colorBackground"
                         android:text="@string/red" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <ImageButton
+                        android:id="@+id/imblack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:background="@android:color/background_light"
+                        app:srcCompat="@drawable/imblack" />
+
+                    <Button
+                        android:id="@+id/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?android:attr/colorBackground"
+                        android:text="@string/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <ImageButton
+                        android:id="@+id/imlimited"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/colorBackground"
+                        android:maxWidth="140dp"
+                        android:maxHeight="140dp"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/imlimited" />
+
+                    <Button
+                        android:id="@+id/limited"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/colorBackground"
+                        android:text="@string/limited" />
                 </LinearLayout>
 
             </LinearLayout>
