@@ -1,66 +1,70 @@
 package com.example.myapplication;
 
-public class order {
-    private static int price;
-    private static int order_amount;
-    private static String typeOfNoodle;
-    private static boolean porkbelly, cheesericecake, dumplings, ramune, greentea;
-    order(int o, String type, int p, boolean pork, boolean cheese, boolean dumpling, boolean Ramune, boolean tea){
-        order_amount = o;
-        typeOfNoodle = type;
-        porkbelly = pork;
-        cheesericecake = cheese;
-        dumplings = dumpling;
-        ramune = Ramune;
-        greentea = tea;
-        price = p;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class order{
+    private int price;
+    private int order_amount;
+    private String typeOfNoodle;
+    private boolean porkbelly, cheesericecake, dumplings, ramune, greentea;
+    order(int order_amount, String typeOfNoodle, int price, boolean porkbelly, boolean cheeserocecake, boolean dumplings, boolean ramune, boolean greentea){
+        this.order_amount = order_amount;
+        this.typeOfNoodle = typeOfNoodle;
+        this.porkbelly = porkbelly;
+        this.cheesericecake = cheeserocecake;
+        this.dumplings = dumplings;
+        this.ramune = ramune;
+        this.greentea = greentea;
+        this.price = price;
     }
-    public static int getPrice(){
+    public int getPrice(){
         return price;
     }
-    public static void setPrice(int p){
+    public void setPrice(int p){
         price = p;
     }
-    public static int getOrder_amount() {
+    public  int getOrder_amount() {
         return order_amount;
     }
-    public static void setOrder_amount(int o){
-        order_amount = o;
+    public  void setOrder_amount(int o){
+        this.order_amount = o;
     }
-    public static String getTypeOfNoodle(){
+    public String getTypeOfNoodle(){
         return typeOfNoodle;
     }
-    public static void setTypeOfNoodle(String type){
+    public void setTypeOfNoodle(String type){
         typeOfNoodle = type;
     }
-    public static boolean getporkbelly(){
+    public boolean getporkbelly(){
         return porkbelly;
     }
-    public static void setporkbelly(boolean pork){
+    public void setporkbelly(boolean pork){
         porkbelly = pork;
     }
-    public static boolean getcheesericecake(){
+    public boolean getcheesericecake(){
         return cheesericecake;
     }
-    public static void setCheesericecake(boolean cheese){
+    public void setCheesericecake(boolean cheese){
         cheesericecake = cheese;
     }
-    public static boolean getDumpling(){
+    public boolean getDumpling(){
         return dumplings;
     }
-    public static void setDumplings(boolean dumpling){
+    public void setDumplings(boolean dumpling){
         dumplings = dumpling;
     }
-    public static boolean getgreentea(){
+    public boolean getgreentea(){
         return greentea;
     }
-    public static void setGreentea(boolean tea){
+    public void setGreentea(boolean tea){
         greentea = tea;
     }
-    public static boolean getramune(){
+    public boolean getramune(){
         return ramune;
     }
-    public static void setRamune(boolean Ramune){
+    public  void setRamune(boolean Ramune){
         ramune = Ramune;
     }
 

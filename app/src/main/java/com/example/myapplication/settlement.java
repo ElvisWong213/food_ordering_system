@@ -19,31 +19,34 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         TextView order_record = findViewById(R.id.order_record);
         if (globalvariable.numOfOrder == 0)
             order_record.setText("還未添加任何食品到購物籃中");
-        else
-            order_record.setText(showOrder(globalvariable.ordering,1));
+        else {
+            order_record.setText(showOrder(globalvariable.ordering, 0, 1));
+        }
     }
-    private String showOrder(order[] orders, int startnum){
+    private String showOrder(order[] orders, int startnum,int endnum){
         String itemlist = "";
-        if(orders[startnum].getTypeOfNoodle() == "white"){
-            itemlist = itemlist.concat("白天王拉麵 ");
+        for(int i = startnum; i <= endnum; i++) {
+            if (orders[i].getTypeOfNoodle() == "white") {
+                itemlist = itemlist.concat("白天王拉麵 ");
+            }
+            if (orders[i].getporkbelly()) {
+                itemlist = itemlist.concat("豚角煮 ");
+            }
+            if (orders[i].getcheesericecake()) {
+                itemlist = itemlist.concat("芝士年糕 ");
+            }
+            if (orders[i].getDumpling()) {
+                itemlist = itemlist.concat("烤餃子(5隻) ");
+            }
+            if (orders[i].getramune()) {
+                itemlist = itemlist.concat("波子汽水 ");
+            }
+            if (orders[i].getgreentea()) {
+                itemlist = itemlist.concat("大分綠茶 ");
+            }
+            itemlist = itemlist.concat("X" + orders[i].getOrder_amount());
+            itemlist = itemlist.concat(" 總計：$" + orders[i].getPrice()+"\n");
         }
-        if(orders[startnum].getporkbelly()){
-            itemlist = itemlist.concat("豚角煮 ");
-        }
-        if (orders[startnum].getcheesericecake()){
-            itemlist = itemlist.concat("芝士年糕 ");
-        }
-        if (orders[startnum].getDumpling()){
-            itemlist = itemlist.concat("烤餃子(5隻) ");
-        }
-        if (orders[startnum].getramune()){
-            itemlist = itemlist.concat("波子汽水 ");
-        }
-        if (orders[startnum].getgreentea()){
-            itemlist = itemlist.concat("大分綠茶 ");
-        }
-        itemlist = itemlist.concat("X"+orders[startnum].getOrder_amount());
-        itemlist = itemlist.concat(" 總計：$"+orders[startnum].getPrice());
         return itemlist;
     }
     public void onClick(View v) {
