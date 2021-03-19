@@ -7,4 +7,5 @@
     <string name="limited">limited</string>
     <string name="snack">snack</string>
     <string name="drink">drink</string>
+    <string name="settleButton">結算</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -17,18 +18,30 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         ImageButton vschomepage = findViewById(R.id.vschomepage);
         vschomepage.setOnClickListener(this);
         TextView order_record = findViewById(R.id.order_record);
+        TextView total = findViewById(R.id.total);
+        Button settle = findViewById(R.id.settle);
+        settle.setOnClickListener(this);
         int index = globalvariable.numOfOrder;
         int k = globalvariable.numOfac;
         int endnum = globalvariable.numOfOrder-1;;
-        if (globalvariable.numOfOrder == 0)
+        if (globalvariable.numOfOrder == 0) {
             order_record.setText("還未添加任何食品到購物籃中");
+            total.setText("");
+        }
         else {
             order_record.setText(showOrder(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
+            total.setText("總計： $"+calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
         }
     }
+    private int calTotal(order[] orders, int startnum, int endnum){
+        int total = 0;
+        for(int i = startnum; i <= endnum; i++)
+        {
+            total += orders[i].getPrice();
+        }
+        return total;
+    }
     private String showOrder(order[] orders, int startnum,int endnum){
-        int index = globalvariable.numOfOrder;
-        int k = globalvariable.numOfac;
         String itemlist = "";
         for(int i = startnum; i <= endnum; i++) {
             if (orders[i].getTypeOfNoodle() == "white") {
@@ -68,6 +81,11 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
                 startActivity(it);
                 finish();
                 break;
+            case R.id.settle:
+                globalvariable.numOfac++;
+                globalvariable.firstOrder = true;
+                break;
         }
+
     }
 }
