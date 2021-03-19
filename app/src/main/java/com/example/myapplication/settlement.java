@@ -17,13 +17,18 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         ImageButton vschomepage = findViewById(R.id.vschomepage);
         vschomepage.setOnClickListener(this);
         TextView order_record = findViewById(R.id.order_record);
+        int index = globalvariable.numOfOrder;
+        int k = globalvariable.numOfac;
+        int endnum = globalvariable.numOfOrder-1;;
         if (globalvariable.numOfOrder == 0)
             order_record.setText("還未添加任何食品到購物籃中");
         else {
-            order_record.setText(showOrder(globalvariable.ordering, 0, 1));
+            order_record.setText(showOrder(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
         }
     }
     private String showOrder(order[] orders, int startnum,int endnum){
+        int index = globalvariable.numOfOrder;
+        int k = globalvariable.numOfac;
         String itemlist = "";
         for(int i = startnum; i <= endnum; i++) {
             if (orders[i].getTypeOfNoodle() == "white") {

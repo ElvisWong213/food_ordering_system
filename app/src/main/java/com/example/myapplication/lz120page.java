@@ -151,7 +151,10 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
             case R.id.whiteshoppingcart:
                 if(amount!=0){
                     if (globalvariable.firstOrder) {
+                        if (!globalvariable.login)
+                            globalvariable.ac[k] = new account("","","","");
                         globalvariable.firstOrder = false;
+                        globalvariable.ac[k].setStartnum(index);
                     }
                     store.setPrice(amount*price);
                     globalvariable.ordering[index] = new order(amount,"white",store.getPrice(),store.getporkbelly(),store.getcheesericecake(),store.getDumpling(),store.getramune(),store.getgreentea());
