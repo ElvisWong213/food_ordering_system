@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication">
+package="com.example.myapplication">
 
     <application
         android:allowBackup="true"
@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name="settlement"></activity>
-        <activity android:name=".RestaurantMainActivity"></activity>
+        <activity android:name=".payment"></activity>
+        <activity android:name=".settlement" />
+        <activity android:name=".redpage" />
+        <activity android:name=".RestaurantMainActivity" />
         <activity android:name=".lz120page" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -58,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.imred:
             case R.id.red:
+                it.setClass(MainActivity.this,redpage.class);
+                startActivity(it);
+                finish();
                 break;
             case R.id.imblack:
             case R.id.black:
