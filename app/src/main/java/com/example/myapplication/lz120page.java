@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class lz120page extends AppCompatActivity implements View.OnClickListener {
     order store;
     private int amount = 0, price = 72;
-    CheckBox porkbelly, cheesericecake, dumplings, greentea, ramune;
+    CheckBox porkbelly, cheesericecake, dumplings, greentea, ramune, charsiu, egg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
         whiteshoppingcart.setOnClickListener(this);
         ImageButton whitehomepage = findViewById(R.id.whitehomepage);
         whitehomepage.setOnClickListener(this);
-        store = new order(0,"",0,false,false,false,false,false);
+        store = new order(0,"",0,false,false,false,false,false, false, false);
         porkbelly = findViewById(R.id.porkBelly);
         porkbelly.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +119,46 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 }
             }
         });
+        egg = findViewById(R.id.egg);
+        egg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((CheckBox) v).isChecked();
+                switch (v.getId()){
+                    case R.id.egg:
+                        if (checked)
+                        {
+                            price += 6;
+                            store.setEgg(true);
+                        }
+                        else {
+                            price -= 6;
+                            store.setEgg(false);
+                        }
+                        break;
+                }
+            }
+        });
+        charsiu = findViewById(R.id.Charsiu);
+        charsiu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((CheckBox) v).isChecked();
+                switch (v.getId()){
+                    case R.id.Charsiu:
+                        if (checked)
+                        {
+                            price += 18;
+                            store.setCharsiu(true);
+                        }
+                        else {
+                            price -= 18;
+                            store.setCharsiu(false);
+                        }
+                        break;
+                }
+            }
+        });
     }
     public void onClick (View v){
         int index = globalvariable.numOfOrder;
@@ -157,7 +197,7 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                         globalvariable.ac[k].setStartnum(index);
                     }
                     store.setPrice(amount*price);
-                    globalvariable.ordering[index] = new order(amount,"white",store.getPrice(),store.getporkbelly(),store.getcheesericecake(),store.getDumpling(),store.getramune(),store.getgreentea());
+                    globalvariable.ordering[index] = new order(amount,"white",store.getPrice(),store.getporkbelly(),store.getcheesericecake(),store.getDumpling(),store.getramune(),store.getgreentea(),store.getEgg(),store.getCharsiu());
                     globalvariable.numOfOrder++;
                     Toast.makeText(lz120page.this,"Total amount is: "+Integer.toString(amount*price),Toast.LENGTH_LONG).show();
                 }

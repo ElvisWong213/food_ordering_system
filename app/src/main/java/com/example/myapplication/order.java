@@ -8,8 +8,8 @@ public class order{
     private int price;
     private int order_amount;
     private String typeOfNoodle;
-    private boolean porkbelly, cheesericecake, dumplings, ramune, greentea;
-    order(int order_amount, String typeOfNoodle, int price, boolean porkbelly, boolean cheeserocecake, boolean dumplings, boolean ramune, boolean greentea){
+    private boolean porkbelly, cheesericecake, dumplings, ramune, greentea, egg, charsiu;
+    order(int order_amount, String typeOfNoodle, int price, boolean porkbelly, boolean cheeserocecake, boolean dumplings, boolean ramune, boolean greentea, boolean egg, boolean charsiu){
         this.order_amount = order_amount;
         this.typeOfNoodle = typeOfNoodle;
         this.porkbelly = porkbelly;
@@ -18,6 +18,8 @@ public class order{
         this.ramune = ramune;
         this.greentea = greentea;
         this.price = price;
+        this.egg = egg;
+        this.charsiu = charsiu;
     }
     public int getPrice(){
         return price;
@@ -68,4 +70,17 @@ public class order{
         ramune = Ramune;
     }
 
+    public void setEgg(boolean egg) {
+        this.egg = egg;
+    }
+    public boolean getEgg(){
+        return egg;
+    }
+
+    public void setCharsiu(boolean charsiu) {
+        this.charsiu = charsiu;
+    }
+    public boolean getCharsiu(){
+        return charsiu;
+    }
 }

@@ -76,6 +76,59 @@
                 android:text="@string/descriptionwhite" />
 
             <TextView
+                android:id="@+id/addition_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="另外選項"
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/egg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="味蛋(半隻)"
+                    android:textColor="@android:color/background_dark" />
+
+                <TextView
+                    android:id="@+id/eggPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="+$6.0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/Charsiu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="叉燒"
+                    android:textColor="@android:color/background_dark" />
+
+                <TextView
+                    android:id="@+id/CharsiuPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="+$18.0" />
+            </LinearLayout>
+
+            <TextView
                 android:id="@+id/snack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -195,6 +248,17 @@
                     android:text="+$18.0" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/justaspace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
