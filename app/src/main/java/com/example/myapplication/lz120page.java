@@ -192,7 +192,7 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 if(amount!=0){
                     if (globalvariable.firstOrder) {
                         if (!globalvariable.login)
-                            globalvariable.ac[k] = new account("","","","");
+                            globalvariable.ac[k] = new account("","","","","");
                         globalvariable.firstOrder = false;
                         globalvariable.ac[k].setStartnum(index);
                     }

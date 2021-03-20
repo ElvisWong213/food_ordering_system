@@ -1,19 +1,26 @@
 package com.example.myapplication;
 
-public class account {
- private int startnum;
- private int endnum;
- private String loginname;
- private String password;
- private String address;
- private String phoneno;
+import androidx.appcompat.app.AppCompatActivity;
 
- account(String loginname, String password, String address, String phoneno){
-     this.loginname = loginname;
-     this.password = password;
-     this.address = address;
-     this.phoneno = phoneno;
- }
+import android.os.Bundle;
+
+public class account{
+    private int startnum;
+    private int endnum;
+    private String loginname;
+    private String password;
+    private String address;
+    private String phoneno;
+    private String creditCard;
+
+    account(String loginname, String password, String address, String phoneno, String creditCard){
+        this.loginname = loginname;
+        this.password = password;
+        this.address = address;
+        this.phoneno = phoneno;
+        this.creditCard = creditCard;
+
+    }
     public int getStartnum() {
         return startnum;
     }
@@ -57,5 +64,13 @@ public class account {
 
     public   void setPhoneno(String phoneno) {
         this.phoneno = phoneno;
+    }
+
+    public String getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(String creditCard) {
+        this.creditCard = creditCard;
     }
 }

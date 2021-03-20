@@ -10,6 +10,7 @@ package="com.example.myapplication">
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".payment"></activity>
+        <activity android:name=".personalInformation">
         <activity android:name=".settlement" />
         <activity android:name=".redpage" />
         <activity android:name=".RestaurantMainActivity" />
