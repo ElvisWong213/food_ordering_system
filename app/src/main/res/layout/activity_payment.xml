@@ -82,6 +82,32 @@
             </LinearLayout>
 
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|right"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="731dp">
+
+        <TextView
+            android:id="@+id/paymentTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="確定下單"
+            android:textSize="24sp"
+            android:backgroundTint="@android:color/holo_red_dark" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

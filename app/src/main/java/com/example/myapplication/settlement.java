@@ -21,10 +21,9 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         TextView total = findViewById(R.id.total);
         Button settle = findViewById(R.id.settle);
         settle.setOnClickListener(this);
-        int index = globalvariable.numOfOrder;
         int k = globalvariable.numOfac;
-        int endnum = globalvariable.numOfOrder-1;;
-        if (globalvariable.numOfOrder == 0) {
+        int endnum = globalvariable.numOfOrder-1;
+        if (globalvariable.firstOrder) {
             order_record.setText("還未添加任何食品到購物籃中");
             total.setText("");
         }
@@ -33,7 +32,7 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
             total.setText("總計： $"+calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
         }
     }
-    private int calTotal(order[] orders, int startnum, int endnum){
+    public int calTotal(order[] orders, int startnum, int endnum){
         int total = 0;
         for(int i = startnum; i <= endnum; i++)
         {
@@ -46,6 +45,9 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         for(int i = startnum; i <= endnum; i++) {
             if (orders[i].getTypeOfNoodle() == "white") {
                 itemlist = itemlist.concat("白天王拉麵 ");
+            }
+            if (orders[i].getTypeOfNoodle() == "red") {
+                itemlist = itemlist.concat("赤天王拉麵 ");
             }
             if (orders[i].getEgg()) {
                 itemlist = itemlist.concat("味蛋(半隻) ");
@@ -82,8 +84,9 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
                 finish();
                 break;
             case R.id.settle:
-                globalvariable.numOfac++;
-                globalvariable.firstOrder = true;
+                it.setClass(settlement.this,payment.class);
+                startActivity(it);
+                finish();
                 break;
         }
 
