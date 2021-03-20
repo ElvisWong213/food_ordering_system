@@ -26,8 +26,10 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         if (globalvariable.firstOrder) {
             order_record.setText("還未添加任何食品到購物籃中");
             total.setText("");
+            settle.setEnabled(false);
         }
         else {
+            settle.setEnabled(true);
             order_record.setText(showOrder(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
             total.setText("總計： $"+calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
         }
