@@ -45,7 +45,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:hint="Name" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,7 +67,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="phone"
-                android:text="Phone Number" />
+                android:hint="Phone Number"/>
 
         </LinearLayout>
 
@@ -90,7 +90,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Address" />
+                android:hint="Address" />
 
         </LinearLayout>
 
@@ -113,7 +113,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Credit Card Number" />
+                android:hint="Credit Card Number" />
         </LinearLayout>
 
         <LinearLayout

@@ -25,7 +25,7 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
         transmit.setOnClickListener(this);
         if(payment.recordAddress)
         {
-            inputAddress.setText("Address");
+            inputAddress.setHint("Address");
             inputAddress.setEnabled(true);
 
         }
@@ -36,7 +36,7 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
         }
         if (payment.recordCreditCard)
         {
-            inputCreditCard.setText("Credit Card Number");
+            inputCreditCard.setHint("Credit Card Number");
             inputCreditCard.setEnabled(true);
         }
         else
