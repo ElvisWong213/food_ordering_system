@@ -9,8 +9,8 @@
     <string name="limited_mainpage"><b>限定天王</b>\n$92</string>
     <string name="limited"><b>限定天王 (沾麵・つけ麺)</b>\n$92</string>
     <string name="descrpitionlimited">熱湯配冷麵\n強烈建議上檯後立即起筷\n享受最即時嘅滋味！\n\n按不同月份不同季節，使用當造食材，\n做出令你回味無窮的天王限定拉麵﹗\n</string>
-    <string name="snack">snack</string>
-    <string name="drink">drink</string>
+    <string name="snack"><b>小食</b></string>
+    <string name="drink"><b>飲品</b></string>
     <string name="settleButton">結算</string>
     <string name="tool">餐具</string>
 </resources>

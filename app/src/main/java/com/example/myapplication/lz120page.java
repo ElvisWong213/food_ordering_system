@@ -24,7 +24,7 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
         whiteplus.setOnClickListener(this);
         ImageButton whiteshoppingcart = findViewById(R.id.whiteshoppingcart);
         whiteshoppingcart.setOnClickListener(this);
-        ImageButton whitehomepage = findViewById(R.id.whitehomepage);
+        ImageButton whitehomepage = findViewById(R.id.drinkhomepage);
         whitehomepage.setOnClickListener(this);
         store = new order(0,"",0,false,false,false,false,false, false, false);
         porkbelly = findViewById(R.id.porkBelly);
@@ -201,7 +201,7 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                     globalvariable.numOfOrder++;
                     Toast.makeText(lz120page.this,"Total amount is: "+Integer.toString(amount*price),Toast.LENGTH_LONG).show();
                 }
-            case R.id.whitehomepage:
+            case R.id.drinkhomepage:
                 it.setClass(lz120page.this,MainActivity.class);
                 startActivity(it);
                 finish();

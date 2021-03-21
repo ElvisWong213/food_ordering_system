@@ -75,9 +75,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.imdrink:
             case R.id.drink:
+                it.setClass(MainActivity.this,drinkpage.class);
+                startActivity(it);
+                finish();
                 break;
             case R.id.imsnack:
             case R.id.snack:
+                it.setClass(MainActivity.this,snackpage.class);
+                startActivity(it);
+                finish();
                 break;
 
             case R.id.viewshoppingcart:
