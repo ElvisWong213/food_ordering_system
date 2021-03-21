@@ -17,6 +17,13 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/homepage" />
 
+        <CheckBox
+            android:id="@+id/tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tool"
+            android:textSize="24sp" />
+
         <TextView
             android:id="@+id/Takeaway"
             android:layout_width="match_parent"

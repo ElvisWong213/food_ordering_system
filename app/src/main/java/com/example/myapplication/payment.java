@@ -31,6 +31,8 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
         RadioButton pickup, delivery;
         pickup = findViewById(R.id.pickup);
         delivery = findViewById(R.id.delivery);
+        CheckBox tool;
+        tool = findViewById(R.id.tool);
         pickup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +48,23 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                 boolean checked = ((RadioButton) v).isChecked();
                 if (checked){
                     recordAddress = true;
+                }
+            }
+        });
+        tool.setOnClickListener(new View.OnClickListener() { //Waiting for modify
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((CheckBox) v).isChecked();
+                switch (v.getId()){
+                    case R.id.tool:
+                        if (checked)
+                        {
+
+                        }
+                        else {
+
+                        }
+                        break;
                 }
             }
         });
@@ -93,4 +112,5 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                 break;
         }
     }
+
 }
