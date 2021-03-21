@@ -69,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.imlimited:
             case R.id.limited:
+                it.setClass(MainActivity.this,limitedpage.class);
+                startActivity(it);
+                finish();
                 break;
             case R.id.imdrink:
             case R.id.drink:

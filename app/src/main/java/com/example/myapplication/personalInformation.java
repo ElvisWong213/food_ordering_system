@@ -21,28 +21,28 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
         EditText inputAddress, inputCreditCard;
         inputAddress = findViewById(R.id.inputAddress);
         inputCreditCard = findViewById(R.id.inputCreditCardNo);
-        payment pay = new payment();
         Button transmit = findViewById(R.id.transmit);
         transmit.setOnClickListener(this);
-        if(!pay.recordAddress)
+        if(payment.recordAddress)
+        {
+            inputAddress.setText("Address");
+            inputAddress.setEnabled(true);
+
+        }
+        else
         {
             inputAddress.setText("不用填寫 (Not require to fill in)");
             inputAddress.setEnabled(false);
         }
-        else
-        {
-            inputAddress.setText("Address");
-            inputAddress.setEnabled(true);
-        }
-        if (!pay.recordCreditCard)
-        {
-            inputCreditCard.setText("不用填寫 (Not require to fill in)");
-            inputCreditCard.setEnabled(false);
-        }
-        else
+        if (payment.recordCreditCard)
         {
             inputCreditCard.setText("Credit Card Number");
             inputCreditCard.setEnabled(true);
+        }
+        else
+        {
+            inputCreditCard.setText("不用填寫 (Not require to fill in)");
+            inputCreditCard.setEnabled(false);
         }
     }
 

@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class payment extends AppCompatActivity implements View.OnClickListener {
-    boolean recordAddress = false, recordCreditCard = false;
+    public static boolean recordAddress = false, recordCreditCard = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,23 +28,49 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
         Button confirm = findViewById(R.id.confirm);
         confirm.setOnClickListener(this);
         RadioGroup pickup_or_delivery = findViewById(R.id.pickup_or_delivery);
-        switch (pickup_or_delivery.getCheckedRadioButtonId()){
-            case R.id.pickup:
-                recordAddress = false;
-                break;
-            case R.id.delivery:
-                recordAddress = true;
-                break;
-        }
+        RadioButton pickup, delivery;
+        pickup = findViewById(R.id.pickup);
+        delivery = findViewById(R.id.delivery);
+        pickup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((RadioButton) v).isChecked();
+                if (checked){
+                    recordAddress = false;
+                }
+            }
+        });
+        delivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((RadioButton) v).isChecked();
+                if (checked){
+                    recordAddress = true;
+                }
+            }
+        });
         RadioGroup cash_or_online = findViewById(R.id.cash_or_online);
-        switch ((cash_or_online.getCheckedRadioButtonId())){
-            case R.id.Cash:
-                recordCreditCard = false;
-                break;
-            case R.id.online:
-                recordCreditCard = true;
-                break;
-        }
+        RadioButton Cash,online;
+        Cash = findViewById(R.id.Cash);
+        online = findViewById(R.id.online);
+        Cash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((RadioButton) v).isChecked();
+                if (checked){
+                    recordCreditCard = false;
+                }
+            }
+        });
+        online.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((RadioButton) v).isChecked();
+                if (checked){
+                    recordCreditCard = true;
+                }
+            }
+        });
     }
     public void onClick (View v) {
         Intent it = new Intent();

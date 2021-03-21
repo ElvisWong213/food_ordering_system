@@ -6,7 +6,8 @@
     <string name="descriptionred">上等辣椒、唐辛子等材料製成，辣而不嗆﹗</string>
     <string name="black">黑天王\n$82</string>
     <string name="descriptionblack">使用新鮮豬骨湯頭， 混合精製黑蒜油，格外鮮甜清香﹗</string>
-    <string name="limited">limited</string>
+    <string name="limited">限定天王\n$92</string>
+    <string name="descrpitionlimited">按不同月份不同季節，使用當造食材，做出令你回味無窮的天王限定拉麵﹗</string>
     <string name="snack">snack</string>
     <string name="drink">drink</string>
     <string name="settleButton">結算</string>

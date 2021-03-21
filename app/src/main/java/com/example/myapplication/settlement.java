@@ -54,6 +54,9 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
             if (orders[i].getTypeOfNoodle() == "black") {
                 itemlist = itemlist.concat("黑天王拉麵 ");
             }
+            if (orders[i].getTypeOfNoodle() == "limited") {
+                itemlist = itemlist.concat("限定天王拉麵 ");
+            }
             if (orders[i].getEgg()) {
                 itemlist = itemlist.concat("味蛋(半隻) ");
             }
