@@ -40,11 +40,12 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/limited"
+                            android:id="@+id/limitedmenu"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="130dp"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/imlimited" />
+                            app:srcCompat="@drawable/limitedmenu" />
+
                     </LinearLayout>
 
                     <ImageButton

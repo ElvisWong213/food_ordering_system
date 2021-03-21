@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">SEHH3143groupProject</string>
-    <string name="white">白天王\n$72</string>
-    <string name="descriptionwhite">湯頭每日由新鮮豬骨熬製十多小時而成，濃厚骨膠原﹗</string>
-    <string name="red">赤天王\n$82</string>
-    <string name="descriptionred">上等辣椒、唐辛子等材料製成，辣而不嗆﹗</string>
-    <string name="black">黑天王\n$82</string>
-    <string name="descriptionblack">使用新鮮豬骨湯頭， 混合精製黑蒜油，格外鮮甜清香﹗</string>
-    <string name="limited">限定天王\n$92</string>
-    <string name="descrpitionlimited">按不同月份不同季節，使用當造食材，做出令你回味無窮的天王限定拉麵﹗</string>
+    <string name="white"><b>白天王</b>\n$72</string>
+    <string name="descriptionwhite">湯頭每日由新鮮豬骨熬製十多小時而成，濃厚骨膠原﹗\n</string>
+    <string name="red"><b>赤天王</b>\n$82</string>
+    <string name="descriptionred">上等辣椒、唐辛子等材料製成，辣而不嗆﹗\n</string>
+    <string name="black"><b>黑天王</b>\n$82</string>
+    <string name="descriptionblack">使用新鮮豬骨湯頭， 混合精製黑蒜油，格外鮮甜清香﹗\n</string>
+    <string name="limited_mainpage"><b>限定天王</b>\n$92</string>
+    <string name="limited"><b>限定天王 (沾麵・つけ麺)</b>\n$92</string>
+    <string name="descrpitionlimited">熱湯配冷麵\n強烈建議上檯後立即起筷\n享受最即時嘅滋味！\n\n按不同月份不同季節，使用當造食材，\n做出令你回味無窮的天王限定拉麵﹗\n</string>
     <string name="snack">snack</string>
     <string name="drink">drink</string>
     <string name="settleButton">結算</string>
