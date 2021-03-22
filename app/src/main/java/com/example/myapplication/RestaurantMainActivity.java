@@ -28,7 +28,7 @@ public class RestaurantMainActivity extends AppCompatActivity{
         ArrayList<String> arrayList = new ArrayList<>();
 
         for (int i = 0; i < globalvariable.numOfac; i++) {
-            arrayList.add(globalvariable.ac[i].getPhoneno());
+            arrayList.add(globalvariable.ac[i].getLoginname());
             System.out.println(globalvariable.ac[i].getLoginname());
         }
 
@@ -44,10 +44,8 @@ public class RestaurantMainActivity extends AppCompatActivity{
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Intent it = new Intent();
-            if(position==0)
-                it.setClass(RestaurantMainActivity.this,LoginActivity.class);
-            if(position==1)
-                it.setClass(RestaurantMainActivity.this,MainActivity.class);
+            it.setClass(RestaurantMainActivity.this,CustomerOrderActivity.class);
+            CustomerOrderActivity.setListIndex(position);
             startActivity(it);
             finish();
         }

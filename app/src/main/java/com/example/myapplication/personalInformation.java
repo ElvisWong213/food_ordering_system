@@ -65,10 +65,10 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
         int k = globalvariable.numOfac;
         switch (v.getId()){
             case R.id.transmit:
-                globalvariable.ac[k].setLoginname(inputName.toString());
-                globalvariable.ac[k].setPhoneno(inputPhone.toString());
-                globalvariable.ac[k].setAddress(inputAddress.toString());
-                globalvariable.ac[k].setCreditCard(inputCreditCard.toString());
+                globalvariable.ac[k].setLoginname(inputName.getText().toString());
+                globalvariable.ac[k].setPhoneno(inputPhone.getText().toString());
+                globalvariable.ac[k].setAddress(inputAddress.getText().toString());
+                globalvariable.ac[k].setCreditCard(inputCreditCard.getText().toString());
                 globalvariable.numOfac++;
                 globalvariable.firstOrder = true;
             case R.id.PIhomepage:
