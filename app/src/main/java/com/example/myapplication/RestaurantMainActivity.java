@@ -1,15 +1,17 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
-public class RestaurantMainActivity extends AppCompatActivity {
+public class RestaurantMainActivity extends AppCompatActivity{
 
     private ListView lvMenu;
 
@@ -35,5 +37,20 @@ public class RestaurantMainActivity extends AppCompatActivity {
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
 
         lvMenu.setAdapter(arrayAdapter);
+        lvMenu.setOnItemClickListener(onClickListView);
     }
+
+    private AdapterView.OnItemClickListener onClickListView = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent it = new Intent();
+            if(position==0)
+                it.setClass(RestaurantMainActivity.this,LoginActivity.class);
+            if(position==1)
+                it.setClass(RestaurantMainActivity.this,MainActivity.class);
+            startActivity(it);
+            finish();
+        }
+    };
+
 }

@@ -95,16 +95,10 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
         Intent it = new Intent();
         switch (v.getId()){
             case R.id.confirm:
-                if(!globalvariable.login) {
                     it.setClass(payment.this,personalInformation.class);
                     startActivity(it);
                     finish();
                     break;
-                }
-                else {
-                    globalvariable.numOfac++;
-                    globalvariable.firstOrder = true;
-                }
             case R.id.payhomepage:
                 it.setClass(payment.this,MainActivity.class);
                 startActivity(it);

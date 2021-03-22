@@ -13,4 +13,8 @@
     <string name="drink"><b>飲品</b></string>
     <string name="settleButton">結算</string>
     <string name="tool">餐具</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">用戶名稱</string>
+    <string name="prompt_password">密碼</string>
+    <string name="action_sign_in">登入</string>
 </resources>
