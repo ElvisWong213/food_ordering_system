@@ -189,10 +189,13 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 white_amount.setText(Integer.toString(amount));
                 break;
             case R.id.whiteshoppingcart:
+                account storeac = globalvariable.registeredInfo[0];
                 if(amount!=0){
                     if (globalvariable.firstOrder) {
                         if (!globalvariable.login)
                             globalvariable.ac[k] = new account("","","","","");
+                        else
+                            globalvariable.ac[k] = new account(storeac.getLoginname(),storeac.getPassword(),storeac.getAddress(),storeac.getPhoneno(),storeac.getCreditCard());
                         globalvariable.firstOrder = false;
                         globalvariable.ac[k].setStartnum(index);
                     }
