@@ -112,14 +112,14 @@
                         android:weightSum="3">
 
                         <RadioButton
-                            android:id="@+id/porkbelly"
+                            android:id="@+id/Rporkbelly"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="豚角煮" />
 
                         <RadioButton
-                            android:id="@+id/cheesericecake"
+                            android:id="@+id/Rcheesericecake"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -127,7 +127,7 @@
                             android:text="芝士年糕" />
 
                         <RadioButton
-                            android:id="@+id/dumpling"
+                            android:id="@+id/Rdumpling"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

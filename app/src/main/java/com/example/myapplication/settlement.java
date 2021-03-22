@@ -45,17 +45,20 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
     private String showOrder(order[] orders, int startnum,int endnum){
         String itemlist = "";
         for(int i = startnum; i <= endnum; i++) {
-            if (orders[i].getTypeOfNoodle() == "white") {
+            if (orders[i].getTypeOfNoodle().equals("white") ) {
                 itemlist = itemlist.concat("白天王拉麵 ");
             }
-            if (orders[i].getTypeOfNoodle() == "red") {
+            if (orders[i].getTypeOfNoodle().equals("red") ) {
                 itemlist = itemlist.concat("赤天王拉麵 ");
             }
-            if (orders[i].getTypeOfNoodle() == "black") {
+            if (orders[i].getTypeOfNoodle().equals("black")) {
                 itemlist = itemlist.concat("黑天王拉麵 ");
             }
-            if (orders[i].getTypeOfNoodle() == "limited") {
+            if (orders[i].getTypeOfNoodle().equals("limited")) {
                 itemlist = itemlist.concat("限定天王拉麵 ");
+            }
+            if (orders[i].getTypeOfNoodle().equals("null")) {
+                itemlist = itemlist.concat("(單點) ");
             }
             if (orders[i].getEgg()) {
                 itemlist = itemlist.concat("味蛋(半隻) ");
