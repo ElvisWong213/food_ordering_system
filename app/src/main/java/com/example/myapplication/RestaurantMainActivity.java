@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class RestaurantMainActivity extends AppCompatActivity {
 
-    ListView lvMenu;
+    private ListView lvMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,12 @@ public class RestaurantMainActivity extends AppCompatActivity {
 
         ArrayList<String> arrayList = new ArrayList<>();
 
-        arrayList.add("Hi");
-        arrayList.add("bye");
+        for (int i = 0; i < globalvariable.numOfac; i++) {
+            arrayList.add(globalvariable.ac[i].getPhoneno());
+            System.out.println(globalvariable.ac[i].getLoginname());
+        }
+
+
 
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
 

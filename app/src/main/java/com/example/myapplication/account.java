@@ -34,7 +34,7 @@ public class account{
         this.endnum = endnum;
     }
 
-    public   String getLoginname() {
+    public String getLoginname() {
         return loginname;
     }
 
