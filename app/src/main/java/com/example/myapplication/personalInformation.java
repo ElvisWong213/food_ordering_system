@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class personalInformation extends AppCompatActivity implements View.OnClickListener {
 
@@ -65,12 +66,17 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
         int k = globalvariable.numOfac;
         switch (v.getId()){
             case R.id.transmit:
-                globalvariable.ac[k].setLoginname(inputName.getText().toString());
-                globalvariable.ac[k].setPhoneno(inputPhone.getText().toString());
-                globalvariable.ac[k].setAddress(inputAddress.getText().toString());
-                globalvariable.ac[k].setCreditCard(inputCreditCard.getText().toString());
-                globalvariable.numOfac++;
-                globalvariable.firstOrder = true;
+                if(inputName.getText().toString().equals("") || inputPhone.getText().toString().length() != 8 ||
+                        (inputAddress.getText().toString().equals("") && payment.recordAddress) || (inputCreditCard.getText().toString().equals("")&&payment.recordCreditCard))
+                    Toast.makeText(personalInformation.this,"請填寫個人資料",Toast.LENGTH_LONG).show();
+                else {
+                    globalvariable.ac[k].setLoginname(inputName.getText().toString());
+                    globalvariable.ac[k].setPhoneno(inputPhone.getText().toString());
+                    globalvariable.ac[k].setAddress(inputAddress.getText().toString());
+                    globalvariable.ac[k].setCreditCard(inputCreditCard.getText().toString());
+                    globalvariable.numOfac++;
+                    globalvariable.firstOrder = true;
+                }
             case R.id.PIhomepage:
                 it.setClass(personalInformation.this,MainActivity.class);
                 startActivity(it);
