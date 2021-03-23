@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginhomepage.setOnClickListener(this);
         Button loginButton = findViewById(R.id.login);
         loginButton.setOnClickListener(this);
-        globalvariable.registeredInfo[0] = new account("SteveWong","19060186A","8 Hung Lok Road, Hung Hom, Kowloon","3746 0123","4539660340296451");
+        globalvariable.registeredInfo[0] = new account("SteveWong","19060186A","8 Hung Lok Road, Hung Hom, Kowloon","3746 0123","4539660340296451","201","22/05");
     }
     public void onClick (View v) {
         Intent it = new Intent();

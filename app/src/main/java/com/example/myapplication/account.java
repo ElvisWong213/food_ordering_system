@@ -12,13 +12,17 @@ public class account{
     private String address;
     private String phoneno;
     private String creditCard;
+    private String CVC;
+    private String validFrom;
 
-    account(String loginname, String password, String address, String phoneno, String creditCard){
+    account(String loginname, String password, String address, String phoneno, String creditCard, String CVC, String validFrom){
         this.loginname = loginname;
         this.password = password;
         this.address = address;
         this.phoneno = phoneno;
         this.creditCard = creditCard;
+        this.CVC = CVC;
+        this.validFrom = validFrom;
 
     }
     public int getStartnum() {
@@ -72,5 +76,21 @@ public class account{
 
     public void setCreditCard(String creditCard) {
         this.creditCard = creditCard;
+    }
+
+    public void setCVC(String CVC) {
+        this.CVC = CVC;
+    }
+
+    public String getCVC() {
+        return CVC;
+    }
+
+    public void setValidFrom(String validFrom) {
+        this.validFrom = validFrom;
+    }
+
+    public String getValidFrom() {
+        return validFrom;
     }
 }

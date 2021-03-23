@@ -44,8 +44,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Name" />
+                android:hint="Name"
+                android:inputType="textPersonName" />
         </LinearLayout>
 
         <LinearLayout
@@ -66,8 +66,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="phone"
-                android:hint="Phone Number"/>
+                android:hint="Phone Number"
+                android:inputType="phone" />
 
         </LinearLayout>
 
@@ -89,8 +89,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Address" />
+                android:hint="Address"
+                android:inputType="textPersonName" />
 
         </LinearLayout>
 
@@ -112,8 +112,52 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Credit Card Number" />
+                android:hint="Credit Card Number"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/validfrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有效期自："
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/inputvalidfrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Valid From"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/CVC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卡驗證碼："
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/inputCVC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="CVC"
+                android:inputType="textPersonName" />
         </LinearLayout>
 
         <LinearLayout
@@ -126,9 +170,9 @@
                 android:id="@+id/transmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_red_dark"
                 android:text="傳送"
-                android:textSize="24sp"
-                android:backgroundTint="@android:color/holo_red_dark" />
+                android:textSize="24sp" />
         </LinearLayout>
 
     </LinearLayout>

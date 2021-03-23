@@ -194,9 +194,9 @@ public class limitedpage extends AppCompatActivity implements View.OnClickListen
                 if(amount!=0){
                     if (globalvariable.firstOrder) {
                         if (!globalvariable.login)
-                            globalvariable.ac[k] = new account("","","","","");
+                            globalvariable.ac[k] = new account("","","","","","","");
                         else
-                            globalvariable.ac[k] = new account(storeac.getLoginname(),storeac.getPassword(),storeac.getAddress(),storeac.getPhoneno(),storeac.getCreditCard());
+                            globalvariable.ac[k] = new account(storeac.getLoginname(),storeac.getPassword(),storeac.getAddress(),storeac.getPhoneno(),storeac.getCreditCard(),storeac.getCVC(),storeac.getValidFrom());
                         globalvariable.firstOrder = false;
                         globalvariable.ac[k].setStartnum(index);
                     }
