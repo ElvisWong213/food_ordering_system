@@ -1,12 +1,18 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -25,19 +31,22 @@ public class RestaurantMainActivity extends AppCompatActivity{
 //        View header = (View)getLayoutInflater().inflate(R.layout.headerView,null);
 //        lvMenu.addHeaderView(header);
 
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<String> nameList = new ArrayList();
+        ArrayList<String> priceList = new ArrayList();
 
         for (int i = 0; i < globalvariable.numOfac; i++) {
-            arrayList.add(globalvariable.ac[i].getLoginname());
-            System.out.println(globalvariable.ac[i].getLoginname());
+            nameList.add(globalvariable.ac[i].getLoginname());
+            priceList.add(String.valueOf(globalvariable.ordering[i].getPrice()));
         }
-
-
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
-
-        lvMenu.setAdapter(arrayAdapter);
+        MyAdapter adapter = new MyAdapter(this, nameList.toArray(new String[0]), priceList.toArray(new String[0]));
+        lvMenu.setAdapter(adapter);
         lvMenu.setOnItemClickListener(onClickListView);
+
+
+//        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, nameList);
+//
+//        lvMenu.setAdapter(arrayAdapter);
+//        lvMenu.setOnItemClickListener(onClickListView);
     }
 
     private AdapterView.OnItemClickListener onClickListView = new AdapterView.OnItemClickListener() {
@@ -49,6 +58,34 @@ public class RestaurantMainActivity extends AppCompatActivity{
             startActivity(it);
             finish();
         }
+
     };
+
+    class MyAdapter extends ArrayAdapter<String> {
+
+        Context context;
+        String sTitle[];
+        String sSubtitle[];
+
+        MyAdapter (Context c, String title[], String subtitle[]) {
+            super(c, R.layout.row, R.id.tvTitle, title);
+            this.context = c;
+            this.sTitle = title;
+            this.sSubtitle = subtitle;
+        }
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View row = layoutInflater.inflate(R.layout.row, parent, false);
+            TextView tvTitle = row.findViewById(R.id.tvTitle);
+            TextView tvSubtitle = row.findViewById(R.id.tvSubtitle);
+
+            tvTitle.setText("顧客名稱: " + sTitle[position]);
+            tvSubtitle.setText("消費金額" + sSubtitle[position]);
+
+            return row;
+        }
+    }
 
 }
