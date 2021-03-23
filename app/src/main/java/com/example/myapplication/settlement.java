@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class settlement extends AppCompatActivity implements View.OnClickListener{
-
+    boolean orderedNoodle = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +29,16 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
             settle.setEnabled(false);
         }
         else {
-            settle.setEnabled(true);
             order_record.setText(showOrder(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
-            total.setText("總計： $"+calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
+            if(orderedNoodle) {
+                settle.setEnabled(true);
+                total.setText("總計： $" + calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
+            }
+            else
+            {
+                settle.setEnabled(false);
+                total.setText("最低消費為一碗拉麵");
+            }
         }
     }
     public int calTotal(order[] orders, int startnum, int endnum){
@@ -47,15 +54,19 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         for(int i = startnum; i <= endnum; i++) {
             if (orders[i].getTypeOfNoodle().equals("white") ) {
                 itemlist = itemlist.concat("白天王拉麵 ");
+                orderedNoodle = true;
             }
             if (orders[i].getTypeOfNoodle().equals("red") ) {
                 itemlist = itemlist.concat("赤天王拉麵 ");
+                orderedNoodle = true;
             }
             if (orders[i].getTypeOfNoodle().equals("black")) {
                 itemlist = itemlist.concat("黑天王拉麵 ");
+                orderedNoodle = true;
             }
             if (orders[i].getTypeOfNoodle().equals("limited")) {
                 itemlist = itemlist.concat("限定天王拉麵 ");
+                orderedNoodle = true;
             }
             if (orders[i].getTypeOfNoodle().equals("null")) {
                 itemlist = itemlist.concat("(單點) ");

@@ -76,7 +76,11 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
                     globalvariable.ac[k].setCreditCard(inputCreditCard.getText().toString());
                     globalvariable.numOfac++;
                     globalvariable.firstOrder = true;
+                    it.setClass(personalInformation.this,MainActivity.class);
+                    startActivity(it);
+                    finish();
                 }
+                break;
             case R.id.PIhomepage:
                 it.setClass(personalInformation.this,MainActivity.class);
                 startActivity(it);
