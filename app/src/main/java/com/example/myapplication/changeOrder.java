@@ -28,6 +28,7 @@ public class changeOrder extends AppCompatActivity implements View.OnClickListen
         prev.setOnClickListener(this);
         Button next = findViewById(R.id.next);
         next.setOnClickListener(this);
+        next.setEnabled(nowOrderNo != endnum);
         prev.setEnabled(false);
         TextView showorder = findViewById(R.id.showorder);
         showorder.setText(showNowOrder(globalvariable.ordering));
@@ -58,7 +59,7 @@ public class changeOrder extends AppCompatActivity implements View.OnClickListen
                 nowOrderNo--;
                 prev.setEnabled(nowOrderNo != globalvariable.ac[k].getStartnum());
                 next.setEnabled(nowOrderNo != endnum);
-               showorder.setText(showNowOrder(globalvariable.ordering));
+                showorder.setText(showNowOrder(globalvariable.ordering));
                 newAmount = globalvariable.ordering[nowOrderNo].getOrder_amount();
                 change_amount.setText(""+globalvariable.ordering[nowOrderNo].getOrder_amount());
                 break;
@@ -84,12 +85,12 @@ public class changeOrder extends AppCompatActivity implements View.OnClickListen
                 if (newAmount != 0)
                 {
                     globalvariable.ordering[nowOrderNo].setOrder_amount(newAmount);
+                    globalvariable.ordering[nowOrderNo].setPrice(globalvariable.ordering[nowOrderNo].getSingleprice()*newAmount);
                 }
                 else
                 {
                     deleteOrder(globalvariable.ordering);
                     globalvariable.numOfOrder--;
-
                 }
                 it.setClass(changeOrder.this, settlement.class);
                 startActivity(it);

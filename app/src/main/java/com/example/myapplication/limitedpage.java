@@ -202,6 +202,7 @@ public class limitedpage extends AppCompatActivity implements View.OnClickListen
                     }
                     store.setPrice(amount*price);
                     globalvariable.ordering[index] = new order(amount,"limited",store.getPrice(),store.getporkbelly(),store.getcheesericecake(),store.getDumpling(),store.getramune(),store.getgreentea(),store.getEgg(),store.getCharsiu());
+                    globalvariable.ordering[index].setSingleprice(price);
                     globalvariable.numOfOrder++;
                     Toast.makeText(limitedpage.this,"小計 $"+Integer.toString(amount*price)+", 已加入購物籃",Toast.LENGTH_LONG).show();
                 }

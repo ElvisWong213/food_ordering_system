@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class order{
+    private int singleprice;
     private int price;
     private int order_amount;
     private String typeOfNoodle;
@@ -21,6 +22,15 @@ public class order{
         this.egg = egg;
         this.charsiu = charsiu;
     }
+
+    public int getSingleprice() {
+        return singleprice;
+    }
+
+    public void setSingleprice(int singleprice) {
+        this.singleprice = singleprice;
+    }
+
     public int getPrice(){
         return price;
     }

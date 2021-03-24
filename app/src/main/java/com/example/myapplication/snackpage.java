@@ -113,6 +113,7 @@ public class snackpage extends AppCompatActivity implements View.OnClickListener
                     }
                     store.setPrice(amount*price);
                     globalvariable.ordering[index] = new order(amount,"null",store.getPrice(),store.getporkbelly(),store.getcheesericecake(),store.getDumpling(),store.getramune(),store.getgreentea(),store.getEgg(),store.getCharsiu());
+                    globalvariable.ordering[index].setSingleprice(price);
                     globalvariable.numOfOrder++;
                     Toast.makeText(snackpage.this,"小計 $"+Integer.toString(amount*price)+", 已加入購物籃",Toast.LENGTH_LONG).show();
                 }

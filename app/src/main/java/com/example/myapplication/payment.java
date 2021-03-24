@@ -14,7 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class payment extends AppCompatActivity implements View.OnClickListener {
-    public static boolean recordAddress = false, recordCreditCard = false;
+    public static Boolean recordAddress, recordCreditCard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +28,7 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
         paymentTotal.setText("總計： $"+settle.calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
         Button confirm = findViewById(R.id.confirm);
         confirm.setOnClickListener(this);
-        RadioGroup pickup_or_delivery = findViewById(R.id.pickup_or_delivery);
+        confirm.setEnabled(false);
         RadioButton pickup, delivery;
         pickup = findViewById(R.id.pickup);
         delivery = findViewById(R.id.delivery);
@@ -41,6 +41,8 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                 boolean checked = ((RadioButton) v).isChecked();
                 if (checked){
                     recordAddress = false;
+                    if(recordCreditCard != null)
+                        confirm.setEnabled(true);
                 }
             }
         });
@@ -50,6 +52,8 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                 boolean checked = ((RadioButton) v).isChecked();
                 if (checked){
                     recordAddress = true;
+                    if(recordCreditCard != null)
+                        confirm.setEnabled(true);
                 }
             }
         });
@@ -70,7 +74,6 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                 }
             }
         });
-        RadioGroup cash_or_online = findViewById(R.id.cash_or_online);
         RadioButton Cash,online;
         Cash = findViewById(R.id.Cash);
         online = findViewById(R.id.online);
@@ -80,6 +83,8 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                 boolean checked = ((RadioButton) v).isChecked();
                 if (checked){
                     recordCreditCard = false;
+                    if(recordAddress != null)
+                        confirm.setEnabled(true);
                 }
             }
         });
@@ -89,24 +94,28 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                 boolean checked = ((RadioButton) v).isChecked();
                 if (checked){
                     recordCreditCard = true;
+                    if(recordAddress != null)
+                        confirm.setEnabled(true);
                 }
             }
         });
     }
     public void onClick (View v) {
         Intent it = new Intent();
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.confirm:
-                    it.setClass(payment.this,personalInformation.class);
-                    startActivity(it);
-                    finish();
-                    break;
-            case R.id.payhomepage:
-                it.setClass(payment.this,MainActivity.class);
+                it.setClass(payment.this, personalInformation.class);
                 startActivity(it);
                 finish();
                 break;
+            case R.id.payhomepage:
+                it.setClass(payment.this, MainActivity.class);
+                recordAddress = null;
+                recordCreditCard = null;
+                startActivity(it);
+                finish();
+
+                break;
         }
     }
-
 }

@@ -100,6 +100,8 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.PIhomepage:
                 it.setClass(personalInformation.this,MainActivity.class);
+                payment.recordCreditCard = null;
+                payment.recordAddress = null;
                 startActivity(it);
                 finish();
                 break;
