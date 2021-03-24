@@ -83,7 +83,7 @@ public class drinkpage extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.drinkshoppingcart:
                 account storeac = globalvariable.registeredInfo[0];
-                if(amount!=0){
+                if(amount!=0 && (store.getramune() || store.getgreentea())){
                     if (globalvariable.firstOrder) {
                         if (!globalvariable.login)
                             globalvariable.ac[k] = new account("","","","","","","");

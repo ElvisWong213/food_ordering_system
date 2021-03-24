@@ -102,7 +102,7 @@ public class snackpage extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.snackshoppingcart:
                 account storeac = globalvariable.registeredInfo[0];
-                if(amount!=0){
+                if(amount!=0 && (store.getcheesericecake() || store.getDumpling() || store.getporkbelly())){
                     if (globalvariable.firstOrder) {
                         if (!globalvariable.login)
                             globalvariable.ac[k] = new account("","","","","","","");
