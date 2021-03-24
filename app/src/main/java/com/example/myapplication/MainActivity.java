@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -107,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        if(settlement.getAmmountnum()){
            ImageView dot = findViewById(R.id.dot);
            dot.setVisibility(View.VISIBLE);
-           Log.d(TAG,"Checkpoint1");
         }
     }
 }
