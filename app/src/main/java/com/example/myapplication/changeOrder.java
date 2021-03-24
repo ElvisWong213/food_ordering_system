@@ -14,14 +14,15 @@ import org.w3c.dom.Text;
 public class changeOrder extends AppCompatActivity implements View.OnClickListener {
     int newAmount;
     int k = globalvariable.numOfac;
-    int endnum = globalvariable.numOfOrder - 1;
-    int nowOrderNo = globalvariable.ac[k].getStartnum();
+    int endnum = globalvariable.ac[k].getEndnum();
+    int nowOrderNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_order);
         ImageButton changehomepage = findViewById(R.id.changehomepage);
+         nowOrderNo = globalvariable.ac[k].getStartnum();
         changehomepage.setOnClickListener(this);
         Button prev = findViewById(R.id.prev);
         prev.setOnClickListener(this);
@@ -35,7 +36,10 @@ public class changeOrder extends AppCompatActivity implements View.OnClickListen
         changeplus.setOnClickListener(this);
         ImageButton changeminus = findViewById(R.id.changeminus);
         changeminus.setOnClickListener(this);
-
+        change_amount.setText(""+globalvariable.ordering[nowOrderNo].getOrder_amount());
+        Button confirm_button = findViewById(R.id.confirm_button);
+        confirm_button.setOnClickListener(this);
+        newAmount = globalvariable.ordering[nowOrderNo].getOrder_amount();
     }
 
     public void onClick(View v) {
@@ -43,6 +47,7 @@ public class changeOrder extends AppCompatActivity implements View.OnClickListen
         Button prev = findViewById(R.id.prev);
         Button next = findViewById(R.id.next);
         TextView showorder = findViewById(R.id.showorder);
+        TextView change_amount = findViewById(R.id.change_amount);
         switch (v.getId()) {
             case R.id.changehomepage:
                 it.setClass(changeOrder.this, MainActivity.class);
@@ -54,18 +59,53 @@ public class changeOrder extends AppCompatActivity implements View.OnClickListen
                 prev.setEnabled(nowOrderNo != globalvariable.ac[k].getStartnum());
                 next.setEnabled(nowOrderNo != endnum);
                showorder.setText(showNowOrder(globalvariable.ordering));
+                newAmount = globalvariable.ordering[nowOrderNo].getOrder_amount();
+                change_amount.setText(""+globalvariable.ordering[nowOrderNo].getOrder_amount());
                 break;
             case R.id.next:
                 nowOrderNo++;
                 next.setEnabled(nowOrderNo != endnum);
                 prev.setEnabled(nowOrderNo != globalvariable.ac[k].getStartnum());
                 showorder.setText(showNowOrder(globalvariable.ordering));
+                newAmount = globalvariable.ordering[nowOrderNo].getOrder_amount();
+                change_amount.setText(""+globalvariable.ordering[nowOrderNo].getOrder_amount());
                 break;
             case R.id.changeplus:
+                if (newAmount <99)
+                {newAmount++;
+                change_amount.setText(""+newAmount);}
                 break;
             case R.id.changeminus:
+                if (newAmount > 0)
+                {newAmount--;
+                change_amount.setText(""+newAmount);}
+                break;
+            case R.id.confirm_button:
+                if (newAmount != 0)
+                {
+                    globalvariable.ordering[nowOrderNo].setOrder_amount(newAmount);
+                }
+                else
+                {
+                    deleteOrder(globalvariable.ordering);
+                    globalvariable.numOfOrder--;
+
+                }
+                it.setClass(changeOrder.this, MainActivity.class);
+                startActivity(it);
+                finish();
                 break;
         }
+    }
+    private void deleteOrder(order[] orders) {
+        if (globalvariable.ac[k].getStartnum() == endnum)
+            globalvariable.firstOrder =true;
+        for (int i = nowOrderNo; i < endnum; i++) {
+            if ((i + 1) != endnum) {
+                orders[i] = orders[i+1];
+            }
+        }
+        globalvariable.ac[k].setEndnum(globalvariable.ac[k].getEndnum()-1);
     }
 
     private String showNowOrder(order[] orders) {

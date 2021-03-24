@@ -28,17 +28,20 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         changeorder.setOnClickListener(this);
         TextView amount = findViewById(R.id.amount);
         int k = globalvariable.numOfac;
-        int endnum = globalvariable.numOfOrder-1;
         if (globalvariable.firstOrder) {
             order_record.setText("還未添加任何食品到購物籃中");
             total.setText("");
             settle.setEnabled(false);
+            changeorder.setEnabled(false);
         }
         else {
-            order_record.setText(showOrder(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
+            int endnum = globalvariable.numOfOrder-1;
+            globalvariable.ac[k].setEndnum(endnum);
+            changeorder.setEnabled(true);
+            order_record.setText(showOrder(globalvariable.ordering, globalvariable.ac[k].getStartnum(), globalvariable.ac[k].getEndnum()));
             if(orderedNoodle) {
                 settle.setEnabled(true);
-                total.setText("總計： $" + calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
+                total.setText("總計： $" + calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), globalvariable.ac[k].getEndnum()));
                 amount.setVisibility(View.VISIBLE);
                 amount.setText("訂單數量： " + String.valueOf(amountnum));
             }
