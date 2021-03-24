@@ -1,16 +1,18 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.Constraints;
 
 import android.os.Bundle;
 import android.text.Layout;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 public class CustomerOrderActivity extends AppCompatActivity {
 
     private static int listIndex;
-    private LinearLayout vLayout1[], vLayout2[], aLayout, hLayout[];
+    private LinearLayout vLayout1[], aLayout, hLayout[];
     private TextView orderItem[], snacks[], amount[], tvCustomerName;
 
     @Override
@@ -54,6 +56,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
                 }
             }
             vLayout1[index] = new LinearLayout(this);
+            vLayout1[index].setPadding(10,0,10,0);
             vLayout1[index].setOrientation(LinearLayout.VERTICAL);
             vLayout1[index].addView(orderItem[orderIndex]);
 
@@ -66,12 +69,12 @@ public class CustomerOrderActivity extends AppCompatActivity {
                 }
             }
             amount[index] = new TextView(this);
-            amount[index].setText("x" + String.valueOf(globalvariable.ordering[orderIndex].getOrder_amount()));
+            amount[index].setText(String.valueOf(globalvariable.ordering[orderIndex].getOrder_amount()) + "x");
 
             hLayout[index] = new LinearLayout(this);
             hLayout[index].setPadding(0,30,0,30);
-            hLayout[index].addView(vLayout1[index]);
             hLayout[index].addView(amount[index]);
+            hLayout[index].addView(vLayout1[index]);
             aLayout.addView(hLayout[index]);
             index++;
         }
