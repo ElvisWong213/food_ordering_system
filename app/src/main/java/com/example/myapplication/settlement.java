@@ -11,7 +11,9 @@ import android.widget.TextView;
 
 public class settlement extends AppCompatActivity implements View.OnClickListener{
     boolean orderedNoodle = false;
-    public int amountnum = 0;
+    int amountnum;
+    static boolean temp = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,7 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
             {
                 settle.setEnabled(false);
                 total.setText("最低消費為一碗拉麵");
+                temp = true;
             }
         }
     }
@@ -117,5 +120,11 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
                 break;
         }
 
+    }
+    public static boolean getAmmountnum(){
+        if (globalvariable.firstOrder) {
+            return false;
+        }
+        return true;
     }
 }

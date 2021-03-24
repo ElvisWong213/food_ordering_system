@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewshoppingcart.setOnClickListener(this);
         Button toRestaurant = findViewById(R.id.toRestaurant);
         toRestaurant.setOnClickListener(this);
+
+        setCart();
     }
 
     public void onClick(View v){
@@ -96,6 +100,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(it);
                 finish();
                 break;
+        }
+    }
+    private static final String TAG="MyApp";
+    public void setCart(){
+       if(settlement.getAmmountnum()){
+           ImageView dot = findViewById(R.id.dot);
+           dot.setVisibility(View.VISIBLE);
+           Log.d(TAG,"Checkpoint1");
         }
     }
 }
