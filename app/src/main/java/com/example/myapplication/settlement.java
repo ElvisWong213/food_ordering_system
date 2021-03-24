@@ -24,6 +24,8 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         TextView total = findViewById(R.id.total);
         Button settle = findViewById(R.id.settle);
         settle.setOnClickListener(this);
+        Button changeorder = findViewById(R.id.changeorder);
+        changeorder.setOnClickListener(this);
         TextView amount = findViewById(R.id.amount);
         int k = globalvariable.numOfac;
         int endnum = globalvariable.numOfOrder-1;
@@ -108,6 +110,11 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         Intent it = new Intent();
         switch (v.getId()){
+            case R.id.changeorder:
+                it.setClass(settlement.this,changeOrder.class);
+                startActivity(it);
+                finish();
+                break;
             case R.id.vschomepage:
                 it.setClass(settlement.this,MainActivity.class);
                 startActivity(it);
