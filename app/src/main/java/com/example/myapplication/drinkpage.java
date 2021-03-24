@@ -95,7 +95,7 @@ public class drinkpage extends AppCompatActivity implements View.OnClickListener
                     store.setPrice(amount*price);
                     globalvariable.ordering[index] = new order(amount,"null",store.getPrice(),store.getporkbelly(),store.getcheesericecake(),store.getDumpling(),store.getramune(),store.getgreentea(),store.getEgg(),store.getCharsiu());
                     globalvariable.numOfOrder++;
-                    Toast.makeText(drinkpage.this,"Total amount is: "+Integer.toString(amount*price),Toast.LENGTH_LONG).show();
+                    Toast.makeText(drinkpage.this,"小計 $"+Integer.toString(amount*price)+", 已加入購物籃",Toast.LENGTH_LONG).show();
                 }
             case R.id.drinkhomepage:
                 it.setClass(drinkpage.this,MainActivity.class);
