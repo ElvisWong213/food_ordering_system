@@ -50,6 +50,7 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
             else
             {
                 settle.setEnabled(false);
+                settle.setBackgroundColor(getResources().getColor(R.color.gray));
                 total.setText("最低消費為一碗拉麵");
                 temp = true;
             }
