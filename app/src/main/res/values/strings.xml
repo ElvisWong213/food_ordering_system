@@ -17,4 +17,6 @@
     <string name="prompt_email">用戶名稱</string>
     <string name="prompt_password">密碼</string>
     <string name="action_sign_in">登入</string>
+    <string name="tool_false">珍惜資源，請善用餐具</string>
+    <string name="tool_true">餐廳會按供應狀況提供餐具</string>
 </resources>

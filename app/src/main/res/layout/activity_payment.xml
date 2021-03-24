@@ -25,6 +25,15 @@
             android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/tool_ask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/tool_false" />
+
+        <TextView
             android:id="@+id/Takeaway"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

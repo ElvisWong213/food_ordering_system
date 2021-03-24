@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
         delivery = findViewById(R.id.delivery);
         CheckBox tool;
         tool = findViewById(R.id.tool);
+        TextView tool_ask = findViewById(R.id.tool_ask);
         pickup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,10 +61,10 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                     case R.id.tool:
                         if (checked)
                         {
-
+                            tool_ask.setText(R.string.tool_true);
                         }
                         else {
-
+                            tool_ask.setText(R.string.tool_false);
                         }
                         break;
                 }
