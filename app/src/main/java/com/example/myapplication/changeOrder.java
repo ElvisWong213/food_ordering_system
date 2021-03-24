@@ -102,7 +102,7 @@ public class changeOrder extends AppCompatActivity implements View.OnClickListen
         if (globalvariable.ac[k].getStartnum() == endnum)
             globalvariable.firstOrder =true;
         for (int i = nowOrderNo; i < endnum; i++) {
-            if ((i + 1) != endnum) {
+            if ((i != endnum)) {
                 orders[i] = orders[i+1];
             }
         }
