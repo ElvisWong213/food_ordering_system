@@ -23,10 +23,10 @@ public class CustomerOrderActivity extends AppCompatActivity {
 
         aLayout = findViewById(R.id.aLayout);
 
-        vLayout1 = new LinearLayout[4];
-        hLayout = new LinearLayout[4];
-        orderItem = new TextView[4];
-        amount = new TextView[4];
+        vLayout1 = new LinearLayout[6];
+        hLayout = new LinearLayout[6];
+        orderItem = new TextView[6];
+        amount = new TextView[6];
 
         info(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum());
     }
@@ -36,28 +36,44 @@ public class CustomerOrderActivity extends AppCompatActivity {
     }
 
     public void info(int start, int end) {
-        for (int orderIndex = start; (orderIndex <= end) && (showNoodleName(orderIndex) != null); orderIndex++) {
-            orderItem[orderIndex] = new TextView(this);
-            orderItem[orderIndex].setText(showNoodleName(orderIndex));
-            vLayout1[orderIndex] = new LinearLayout(this);
-            vLayout1[orderIndex].setOrientation(LinearLayout.VERTICAL);
-            vLayout1[orderIndex].addView(orderItem[orderIndex]);
+        int index = 0;
+        for (int orderIndex = start; (orderIndex <= end) && ((showNoodleName(orderIndex) != null) || (checkOtherItem(orderIndex))); orderIndex++) {
+
+            System.out.println(orderIndex);
+            if(showNoodleName(orderIndex) != null) {
+                orderItem[index] = new TextView(this);
+                orderItem[index].setText(showNoodleName(orderIndex));
+            }else{
+                for (int i = 0; i < 7; i++) {
+                    if (showOtherItem(orderIndex, i) != null) {
+                        orderItem[index] = new TextView(this);
+                        orderItem[index].setText(showOtherItem(orderIndex, i));
+                        System.out.println(showOtherItem(orderIndex, i));
+                        break;
+                    }
+                }
+            }
+            vLayout1[index] = new LinearLayout(this);
+            vLayout1[index].setOrientation(LinearLayout.VERTICAL);
+            vLayout1[index].addView(orderItem[orderIndex]);
 
             snacks = new TextView[7];
             for (int i = 0; i < 7; i++) {
                 if (showOtherItem(orderIndex, i) != null) {
                     snacks[i] = new TextView(this);
                     snacks[i].setText(showOtherItem(orderIndex, i));
-                    vLayout1[orderIndex].addView(snacks[i]);
+                    vLayout1[index].addView(snacks[i]);
                 }
             }
-            amount[orderIndex] = new TextView(this);
-            amount[orderIndex].setText(String.valueOf(globalvariable.ordering[orderIndex].getOrder_amount()));
+            amount[index] = new TextView(this);
+            amount[index].setText("x" + String.valueOf(globalvariable.ordering[orderIndex].getOrder_amount()));
 
-            hLayout[orderIndex] = new LinearLayout(this);
-            hLayout[orderIndex].addView(vLayout1[orderIndex]);
-            hLayout[orderIndex].addView(amount[orderIndex]);
-            aLayout.addView(hLayout[orderIndex]);
+            hLayout[index] = new LinearLayout(this);
+            hLayout[index].setPadding(0,30,0,30);
+            hLayout[index].addView(vLayout1[index]);
+            hLayout[index].addView(amount[index]);
+            aLayout.addView(hLayout[index]);
+            index++;
         }
 
     }
@@ -101,6 +117,18 @@ public class CustomerOrderActivity extends AppCompatActivity {
         }
         if (globalvariable.ordering[index].getgreentea() && i == 6) {
             output = "大分綠茶 ";
+        }
+        return output;
+    }
+
+    public Boolean checkOtherItem(int orderIndex) {
+        Boolean output = false;
+        for (int i = 0; i < 7; i++) {
+            if (showOtherItem(orderIndex, i) == null) {
+                output = false;
+            }else{
+                output = true;
+            }
         }
         return output;
     }
