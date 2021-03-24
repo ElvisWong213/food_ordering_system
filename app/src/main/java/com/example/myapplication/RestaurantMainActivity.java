@@ -28,25 +28,25 @@ public class RestaurantMainActivity extends AppCompatActivity{
 
         lvMenu = findViewById(R.id.Menu);
 
-//        View header = (View)getLayoutInflater().inflate(R.layout.headerView,null);
-//        lvMenu.addHeaderView(header);
-
         ArrayList<String> nameList = new ArrayList();
         ArrayList<String> priceList = new ArrayList();
 
         for (int i = 0; i < globalvariable.numOfac; i++) {
             nameList.add(globalvariable.ac[i].getLoginname());
-            priceList.add(String.valueOf(globalvariable.ordering[i].getPrice()));
+            priceList.add(String.valueOf(totalPrice(globalvariable.ac[i].getStartnum(), globalvariable.ac[i].getEndnum())));
         }
         MyAdapter adapter = new MyAdapter(this, nameList.toArray(new String[0]), priceList.toArray(new String[0]));
         lvMenu.setAdapter(adapter);
         lvMenu.setOnItemClickListener(onClickListView);
 
+    }
 
-//        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, nameList);
-//
-//        lvMenu.setAdapter(arrayAdapter);
-//        lvMenu.setOnItemClickListener(onClickListView);
+    private String totalPrice(int start, int end) {
+        int total = 0;
+        for (int i = start; i <= end; i++) {
+            total += globalvariable.ordering[i].getPrice();
+        }
+        return String.valueOf(total);
     }
 
     private AdapterView.OnItemClickListener onClickListView = new AdapterView.OnItemClickListener() {
@@ -82,7 +82,7 @@ public class RestaurantMainActivity extends AppCompatActivity{
             TextView tvSubtitle = row.findViewById(R.id.tvSubtitle);
 
             tvTitle.setText("顧客名稱: " + sTitle[position]);
-            tvSubtitle.setText("消費金額" + sSubtitle[position]);
+            tvSubtitle.setText("消費金額: $" + sSubtitle[position]);
 
             return row;
         }

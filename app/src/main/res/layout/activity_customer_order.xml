@@ -6,28 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".CustomerOrderActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/aLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="50px"
+            android:paddingRight="50px">
 
-            <ImageView
-                android:id="@+id/iv1"
-                android:layout_width="172dp"
-                android:layout_height="177dp"
-                tools:srcCompat="@drawable/blackmenu" />
+            <TextView
+                android:id="@+id/tvCustomerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:text="餐點"
+                android:textSize="18sp" />
+
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
