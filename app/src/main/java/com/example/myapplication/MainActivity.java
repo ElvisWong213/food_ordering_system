@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    private static final String TAG="MyApp";
     public void setCart(){
        if(settlement.getAmmountnum()){
            ImageView dot = findViewById(R.id.dot);
