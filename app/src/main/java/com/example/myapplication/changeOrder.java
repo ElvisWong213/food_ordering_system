@@ -91,7 +91,7 @@ public class changeOrder extends AppCompatActivity implements View.OnClickListen
                     globalvariable.numOfOrder--;
 
                 }
-                it.setClass(changeOrder.this, MainActivity.class);
+                it.setClass(changeOrder.this, settlement.class);
                 startActivity(it);
                 finish();
                 break;

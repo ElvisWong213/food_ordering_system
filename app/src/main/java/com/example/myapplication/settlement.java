@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,7 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
             order_record.setText("還未添加任何食品到購物籃中");
             total.setText("");
             settle.setEnabled(false);
+            settle.setBackgroundColor(getResources().getColor(R.color.gray));
             changeorder.setEnabled(false);
         }
         else {
