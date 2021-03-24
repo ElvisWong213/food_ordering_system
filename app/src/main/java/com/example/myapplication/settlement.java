@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class settlement extends AppCompatActivity implements View.OnClickListener{
     boolean orderedNoodle = false;
+    public int amountnum = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,7 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         TextView total = findViewById(R.id.total);
         Button settle = findViewById(R.id.settle);
         settle.setOnClickListener(this);
+        TextView amount = findViewById(R.id.amount);
         int k = globalvariable.numOfac;
         int endnum = globalvariable.numOfOrder-1;
         if (globalvariable.firstOrder) {
@@ -33,6 +35,8 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
             if(orderedNoodle) {
                 settle.setEnabled(true);
                 total.setText("總計： $" + calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
+                amount.setVisibility(View.VISIBLE);
+                amount.setText("訂單數量： " + String.valueOf(amountnum));
             }
             else
             {
@@ -92,8 +96,9 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
             if (orders[i].getgreentea()) {
                 itemlist = itemlist.concat("大分綠茶 ");
             }
-            itemlist = itemlist.concat("X" + orders[i].getOrder_amount());
-            itemlist = itemlist.concat(" 總計：$" + orders[i].getPrice()+"\n");
+            amountnum = amountnum + orders[i].getOrder_amount();
+            itemlist = itemlist.concat("\n數量: " + orders[i].getOrder_amount());
+            itemlist = itemlist.concat(" 總計：$" + orders[i].getPrice()+ "\n\n");
         }
         return itemlist;
     }
