@@ -125,6 +125,8 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
                 globalvariable.ac[k].setPhoneno(inputPhone.getText().toString());
                 globalvariable.ac[k].setAddress(inputAddress.getText().toString());
                 globalvariable.ac[k].setCreditCard(inputCreditCard.getText().toString());
+                globalvariable.ac[k].setTool(payment.getToolCheck());
+                payment.setToolCheck(false);
                 globalvariable.numOfac++;
                 globalvariable.firstOrder = true;
                 it.setClass(personalInformation.this,MainActivity.class);

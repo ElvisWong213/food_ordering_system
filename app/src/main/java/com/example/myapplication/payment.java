@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class payment extends AppCompatActivity implements View.OnClickListener {
     public static Boolean recordAddress, recordCreditCard;
+    private static Boolean toolCheck = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,9 +67,11 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                         if (checked)
                         {
                             tool_ask.setText(R.string.tool_true);
+                            setToolCheck(true);
                         }
                         else {
                             tool_ask.setText(R.string.tool_false);
+                            setToolCheck(false);
                         }
                         break;
                 }
@@ -117,5 +120,12 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
 
                 break;
         }
+    }
+
+    public static Boolean getToolCheck() {
+        return toolCheck;
+    }
+    public static void setToolCheck(Boolean input) {
+        toolCheck = input;
     }
 }
