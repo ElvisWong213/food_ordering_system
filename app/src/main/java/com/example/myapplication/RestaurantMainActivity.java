@@ -88,4 +88,13 @@ public class RestaurantMainActivity extends AppCompatActivity{
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(RestaurantMainActivity.this,MainActivity.class);
+        startActivity(it);
+        finish();
+    }
+
 }

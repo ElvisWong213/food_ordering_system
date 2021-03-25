@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Constraints;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.Gravity;
@@ -152,5 +153,14 @@ public class CustomerOrderActivity extends AppCompatActivity {
             }
         }
         return output;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(CustomerOrderActivity.this,RestaurantMainActivity.class);
+        startActivity(it);
+        finish();
     }
 }
