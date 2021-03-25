@@ -34,7 +34,7 @@ public class RestaurantMainActivity extends AppCompatActivity{
 
         for (int i = 0; i < globalvariable.numOfac; i++) {
             nameList.add(globalvariable.ac[i].getLoginname());
-            priceList.add(String.valueOf(totalPrice(globalvariable.ac[i].getStartnum(), globalvariable.ac[i].getEndnum())));
+            priceList.add(String.valueOf(getTotalPrice(globalvariable.ac[i].getStartnum(), globalvariable.ac[i].getEndnum())));
             if (globalvariable.ac[i].getAddress().equals("不用填寫 (Not require to fill in)")) {
                 typeList.add("自取");
             }else{
@@ -48,7 +48,7 @@ public class RestaurantMainActivity extends AppCompatActivity{
 
     }
 
-    private String totalPrice(int start, int end) {
+    public String getTotalPrice(int start, int end) {
         int total = 0;
         for (int i = start; i <= end; i++) {
             total += globalvariable.ordering[i].getPrice();
