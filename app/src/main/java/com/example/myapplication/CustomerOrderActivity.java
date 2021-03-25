@@ -16,8 +16,8 @@ public class CustomerOrderActivity extends AppCompatActivity {
 
     private static int listIndex;
     private LinearLayout vLayout1[], aLayout, hLayout[];
-    private TextView orderItem[], snacks[], amount[], price[], totalPrice, tvCustomerName, tvPhoneNumber, tvAddress;
-    private String sAddress;
+    private TextView orderItem[], snacks[], amount[], price[], totalPrice, tvCustomerName, tvPhoneNumber, tvAddress, tvTool;
+    private String sAddress, sTool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,15 @@ public class CustomerOrderActivity extends AppCompatActivity {
             sAddress += globalvariable.ac[listIndex].getAddress();
         }
         tvAddress.setText(sAddress);
+
+        tvTool = findViewById(R.id.tvTool);
+        sTool = "餐具: ";
+        if (globalvariable.ac[listIndex].getTool()) {
+            sTool += "需要";
+        }else{
+            sTool += "不需要";
+        }
+        tvTool.setText(sTool);
 
         aLayout = findViewById(R.id.aLayout);
 
@@ -90,10 +99,10 @@ public class CustomerOrderActivity extends AppCompatActivity {
                     if (showOtherItem(orderIndex, i) != null) {
                         snacks[index] = new TextView(this);
                         snacks[index].setText(showOtherItem(orderIndex, i));
+                        vLayout1[index].addView(snacks[index]);
                         break;
                     }
                 }
-                vLayout1[index].addView(snacks[index]);
             }
 
             amount[index] = new TextView(this);
