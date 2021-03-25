@@ -125,7 +125,7 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
     public static Boolean getToolCheck() {
         return toolCheck;
     }
-    public void setToolCheck(Boolean input) {
+    public static void setToolCheck(Boolean input) {
         toolCheck = input;
     }
 }
