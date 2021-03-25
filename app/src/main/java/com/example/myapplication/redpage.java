@@ -203,7 +203,7 @@ public class redpage extends AppCompatActivity implements View.OnClickListener {
                     globalvariable.ordering[index] = new order(amount,"red",store.getPrice(),store.getporkbelly(),store.getcheesericecake(),store.getDumpling(),store.getramune(),store.getgreentea(),store.getEgg(),store.getCharsiu());
                     globalvariable.ordering[index].setSingleprice(price);
                     globalvariable.numOfOrder++;
-                    Toast.makeText(redpage.this,"小計 $"+Integer.toString(amount*price) +", 已加入購物籃",Toast.LENGTH_LONG).show();
+                    Toast.makeText(redpage.this,"小計 $"+Integer.toString(amount*price) +", 已加入購物籃",Toast.LENGTH_SHORT).show();
                 }
             case R.id.redhomepage:
                 it.setClass(redpage.this,MainActivity.class);

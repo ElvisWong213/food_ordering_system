@@ -203,7 +203,7 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                     globalvariable.ordering[index] = new order(amount,"white",store.getPrice(),store.getporkbelly(),store.getcheesericecake(),store.getDumpling(),store.getramune(),store.getgreentea(),store.getEgg(),store.getCharsiu());
                     globalvariable.ordering[index].setSingleprice(price);
                     globalvariable.numOfOrder++;
-                    Toast.makeText(lz120page.this,"小計 $"+Integer.toString(amount*price)+", 已加入購物籃",Toast.LENGTH_LONG).show();
+                    Toast.makeText(lz120page.this,"小計 $"+Integer.toString(amount*price)+", 已加入購物籃",Toast.LENGTH_SHORT).show();
                 }
             case R.id.drinkhomepage:
                 it.setClass(lz120page.this,MainActivity.class);

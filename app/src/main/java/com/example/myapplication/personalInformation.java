@@ -1,7 +1,9 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class personalInformation extends AppCompatActivity implements View.OnClickListener {
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,17 +88,10 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
                 if(inputName.getText().toString().equals("") || inputPhone.getText().toString().length() != 8 ||
                         (inputAddress.getText().toString().equals("") && payment.recordAddress) ||
                         (inputCreditCard.getText().toString().length() != 16 && payment.recordCreditCard && inputCVC.getText().toString().length() != 3 && inputvalidfrom.getText().toString().equals("")))
-                    Toast.makeText(personalInformation.this,"請填寫個人資料",Toast.LENGTH_LONG).show();
+                    Toast.makeText(personalInformation.this,"請確認輸入的資料正確無誤",Toast.LENGTH_LONG).show();
                 else {
-                    globalvariable.ac[k].setLoginname(inputName.getText().toString());
-                    globalvariable.ac[k].setPhoneno(inputPhone.getText().toString());
-                    globalvariable.ac[k].setAddress(inputAddress.getText().toString());
-                    globalvariable.ac[k].setCreditCard(inputCreditCard.getText().toString());
-                    globalvariable.numOfac++;
-                    globalvariable.firstOrder = true;
-                    it.setClass(personalInformation.this,MainActivity.class);
-                    startActivity(it);
-                    finish();
+                    showQuitDialog();
+
                 }
                 break;
             case R.id.PIhomepage:
@@ -107,5 +103,47 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
                 break;
 
         }
+    }
+    private void showQuitDialog(){
+        builder = new AlertDialog.Builder(this);
+        builder.setMessage("當傳送訂單後，將不能更改或取消。");
+        builder.setCancelable(false);
+        Intent it = new Intent();
+        EditText inputName, inputPhone, inputAddress, inputCreditCard, inputCVC, inputvalidfrom;
+        inputName = findViewById(R.id.inputName);
+        inputPhone = findViewById(R.id.inputPhone);
+        inputAddress = findViewById(R.id.inputAddress);
+        inputCreditCard = findViewById(R.id.inputCreditCardNo);
+        inputCVC = findViewById(R.id.inputCVC);
+        inputvalidfrom = findViewById(R.id.inputvalidfrom);
+        int k = globalvariable.numOfac;
+
+        builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                globalvariable.ac[k].setLoginname(inputName.getText().toString());
+                globalvariable.ac[k].setPhoneno(inputPhone.getText().toString());
+                globalvariable.ac[k].setAddress(inputAddress.getText().toString());
+                globalvariable.ac[k].setCreditCard(inputCreditCard.getText().toString());
+                globalvariable.numOfac++;
+                globalvariable.firstOrder = true;
+                it.setClass(personalInformation.this,MainActivity.class);
+                startActivity(it);
+                finish();
+                Toast.makeText(getApplicationContext(),
+                        "你的訂單已送出", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        builder.setNegativeButton("否", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.setTitle("是否確認傳送訂單 ?");
+        alert.show();
     }
 }

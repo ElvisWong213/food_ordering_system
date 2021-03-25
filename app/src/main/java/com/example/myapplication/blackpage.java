@@ -203,7 +203,7 @@ public class blackpage extends AppCompatActivity implements View.OnClickListener
                     globalvariable.ordering[index] = new order(amount,"black",store.getPrice(),store.getporkbelly(),store.getcheesericecake(),store.getDumpling(),store.getramune(),store.getgreentea(),store.getEgg(),store.getCharsiu());
                     globalvariable.ordering[index].setSingleprice(price);
                     globalvariable.numOfOrder++;
-                    Toast.makeText(blackpage.this,"小計 $"+Integer.toString(amount*price)+", 已加入購物籃",Toast.LENGTH_LONG).show();
+                    Toast.makeText(blackpage.this,"小計 $"+Integer.toString(amount*price)+", 已加入購物籃",Toast.LENGTH_SHORT).show();
                 }
             case R.id.blackhomepage:
                 it.setClass(blackpage.this,MainActivity.class);
