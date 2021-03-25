@@ -160,6 +160,25 @@
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/openrice" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/mappage"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/map"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/map" />
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 
