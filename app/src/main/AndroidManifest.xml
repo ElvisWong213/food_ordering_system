@@ -51,7 +51,8 @@
         <activity android:name=".redpage" />
         <activity android:name=".RestaurantMainActivity" />
         <activity android:name=".lz120page" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

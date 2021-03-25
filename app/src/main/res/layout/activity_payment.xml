@@ -111,6 +111,14 @@
         tools:layout_editor_absoluteY="731dp">
 
         <TextView
+            android:id="@+id/extra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="運費"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/paymentTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

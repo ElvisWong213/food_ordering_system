@@ -16,18 +16,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ImageButton loginhomepage = findViewById(R.id.loginhomepage);
-        loginhomepage.setOnClickListener(this);
+        Button withoutLogin = findViewById(R.id.withoutLogin);
+        withoutLogin.setOnClickListener(this);
         Button loginButton = findViewById(R.id.login);
         loginButton.setOnClickListener(this);
-        globalvariable.registeredInfo[0] = new account("SteveWong","19060186A","8 Hung Lok Road, Hung Hom, Kowloon","3746 0123","4539660340296451","201","22/05");
+        globalvariable.registeredInfo[0] = new account("SteveWong","19060186A","8 Hung Lok Road, Hung Hom, Kowloon","37460123","4539660340296451","201","22/05");
     }
     public void onClick (View v) {
         Intent it = new Intent();
         EditText usernameEditText = findViewById(R.id.username);
         EditText passwordEditText = findViewById(R.id.password);
         switch (v.getId()){
-            case R.id.loginhomepage:
+            case R.id.withoutLogin:
                 it.setClass(LoginActivity.this, MainActivity.class);
                 startActivity(it);
                 finish();
@@ -37,6 +37,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 {
                     globalvariable.login =true;
                     it.setClass(LoginActivity.this, MainActivity.class);
+                    startActivity(it);
+                    finish();
+                }
+                else if(usernameEditText.getText().toString().equals("restaurant") && passwordEditText.getText().toString().equals("123")) {
+                    it.setClass(LoginActivity.this, RestaurantMainActivity.class);
                     startActivity(it);
                     finish();
                 }

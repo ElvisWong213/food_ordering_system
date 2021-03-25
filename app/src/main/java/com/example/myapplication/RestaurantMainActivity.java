@@ -48,12 +48,12 @@ public class RestaurantMainActivity extends AppCompatActivity{
 
     }
 
-    public String getTotalPrice(int start, int end) {
+    public int getTotalPrice(int start, int end) {
         int total = 0;
         for (int i = start; i <= end; i++) {
             total += globalvariable.ordering[i].getPrice();
         }
-        return String.valueOf(total);
+        return total;
     }
 
     private AdapterView.OnItemClickListener onClickListView = new AdapterView.OnItemClickListener() {
@@ -104,7 +104,7 @@ public class RestaurantMainActivity extends AppCompatActivity{
     public void onBackPressed() {
         super.onBackPressed();
         Intent it = new Intent();
-        it.setClass(RestaurantMainActivity.this,MainActivity.class);
+        it.setClass(RestaurantMainActivity.this,LoginActivity.class);
         startActivity(it);
         finish();
     }

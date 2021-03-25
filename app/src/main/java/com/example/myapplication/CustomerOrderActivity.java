@@ -16,7 +16,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
 
     private static int listIndex;
     private LinearLayout vLayout1[], aLayout, hLayout[];
-    private TextView orderItem[], snacks[], amount[], price[], totalPrice, tvCustomerName, tvPhoneNumber, tvAddress, tvTool;
+    private TextView orderItem[], snacks[], amount[], price[], totalPrice, tvCustomerName, tvPhoneNumber, tvAddress, tvTool, extra;
     private String sAddress, sTool;
 
     @Override
@@ -30,7 +30,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
         tvPhoneNumber = findViewById(R.id.tvPhoneNumber);
         tvPhoneNumber.setText("電話號碼: " + globalvariable.ac[listIndex].getPhoneno());
         tvAddress = findViewById(R.id.tvAddress);
-        sAddress = "地址: ";
+        sAddress = "";
         if (globalvariable.ac[listIndex].getAddress().equals("不用填寫 (Not require to fill in)")) {
             sAddress += "外賣自取";
         }else{
@@ -59,10 +59,21 @@ public class CustomerOrderActivity extends AppCompatActivity {
         totalPrice.setTextSize(20);
         totalPrice.setGravity(Gravity.RIGHT);
         RestaurantMainActivity restaurantMainActivity = new RestaurantMainActivity();
-        totalPrice.setText("總金額: $" + restaurantMainActivity.getTotalPrice(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum()));
+        extra = new TextView(this);
+        extra.setTextSize(15);
+        extra.setGravity(Gravity.RIGHT);
+        if (globalvariable.ac[listIndex].getAddress().equals("不用填寫 (Not require to fill in)")) {
+            extra.setText("免運費");
+
+            totalPrice.setText("總金額: $" + restaurantMainActivity.getTotalPrice(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum()));
+        }else{
+            extra.setText("運費: $20");
+            totalPrice.setText("總金額: $" + (restaurantMainActivity.getTotalPrice(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum()) + 20));
+        }
 
         info(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum());
 
+        aLayout.addView(extra);
         aLayout.addView(totalPrice);
     }
 

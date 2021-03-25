@@ -25,7 +25,9 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
         int k = globalvariable.numOfac;
         int endnum = globalvariable.numOfOrder-1;
         settlement settle = new settlement();
+        TextView extra = findViewById(R.id.extra);
         TextView paymentTotal = findViewById(R.id.paymentTotal);
+        extra.setText("免運費");
         paymentTotal.setText("總計： $"+settle.calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
         Button confirm = findViewById(R.id.confirm);
         confirm.setOnClickListener(this);
@@ -42,6 +44,8 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                 boolean checked = ((RadioButton) v).isChecked();
                 if (checked){
                     recordAddress = false;
+                    extra.setText("免運費");
+                    paymentTotal.setText("總計： $"+settle.calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum));
                     if(recordCreditCard != null)
                         confirm.setEnabled(true);
                 }
@@ -53,6 +57,8 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
                 boolean checked = ((RadioButton) v).isChecked();
                 if (checked){
                     recordAddress = true;
+                    extra.setText("運費: $20");
+                    paymentTotal.setText("總計： $"+(settle.calTotal(globalvariable.ordering, globalvariable.ac[k].getStartnum(), endnum) + 20));
                     if(recordCreditCard != null)
                         confirm.setEnabled(true);
                 }
