@@ -22,16 +22,32 @@
                 android:id="@+id/tvCustomerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:paddingTop="10dp"
+                android:text="名稱"
                 android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="電話號碼"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="地址: "
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="餐點"
-                android:textSize="18sp" />
+                android:paddingTop="10dp"
+                android:text="餐點:"
+                android:textSize="24sp" />
 
         </LinearLayout>
     </ScrollView>

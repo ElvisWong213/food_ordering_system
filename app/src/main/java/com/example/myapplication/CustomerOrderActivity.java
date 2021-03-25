@@ -5,7 +5,9 @@ import androidx.constraintlayout.widget.Constraints;
 
 import android.os.Bundle;
 import android.text.Layout;
+import android.view.Gravity;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Space;
 import android.widget.TextView;
 
@@ -13,7 +15,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
 
     private static int listIndex;
     private LinearLayout vLayout1[], aLayout, hLayout[];
-    private TextView orderItem[], snacks[], amount[], tvCustomerName;
+    private TextView orderItem[], snacks[], amount[], price[], tvCustomerName, tvPhoneNumber, tvAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,15 @@ public class CustomerOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_order);
 
         tvCustomerName = findViewById(R.id.tvCustomerName);
-        tvCustomerName.setText(globalvariable.ac[listIndex].getLoginname());
+        tvCustomerName.setText("顧客名稱: " + globalvariable.ac[listIndex].getLoginname());
+        tvPhoneNumber = findViewById(R.id.tvPhoneNumber);
+        tvPhoneNumber.setText("電話號碼: " + globalvariable.ac[listIndex].getPhoneno());
+        tvAddress = findViewById(R.id.tvAddress);
+        if (globalvariable.ac[listIndex].getAddress().equals("不用填寫 (Not require to fill in)")) {
+            tvAddress.setText("地址: 外賣自取");
+        }else{
+            tvAddress.setText("地址: " + globalvariable.ac[listIndex].getAddress());
+        }
 
         aLayout = findViewById(R.id.aLayout);
 
@@ -29,6 +39,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
         hLayout = new LinearLayout[6];
         orderItem = new TextView[6];
         amount = new TextView[6];
+        price =  new TextView[6];
 
         info(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum());
     }
@@ -44,6 +55,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
             System.out.println(orderIndex);
             if(showNoodleName(orderIndex) != null) {
                 orderItem[index] = new TextView(this);
+                orderItem[index].setTextSize(20);
                 orderItem[index].setText(showNoodleName(orderIndex));
             }else{
                 for (int i = 0; i < 7; i++) {
@@ -69,12 +81,18 @@ public class CustomerOrderActivity extends AppCompatActivity {
                 }
             }
             amount[index] = new TextView(this);
+            amount[index].setTextSize(20);
             amount[index].setText(String.valueOf(globalvariable.ordering[orderIndex].getOrder_amount()) + "x");
+
+            price[index] = new TextView(this);
+            price[index].setTextSize(20);
+            price[index].setText("$" + String.valueOf(globalvariable.ordering[orderIndex].getPrice()));
 
             hLayout[index] = new LinearLayout(this);
             hLayout[index].setPadding(0,30,0,30);
             hLayout[index].addView(amount[index]);
             hLayout[index].addView(vLayout1[index]);
+            hLayout[index].addView(price[index]);
             aLayout.addView(hLayout[index]);
             index++;
         }
