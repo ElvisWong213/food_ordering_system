@@ -2,29 +2,49 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Row"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CustomListView">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:paddingLeft="50px"
         android:paddingRight="50px">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="24sp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="顧客名稱"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="消費金額"
+                android:textSize="24sp" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tvSubtitle"
+            android:id="@+id/tvType"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center|right"
+            android:text="外賣類別"
             android:textSize="24sp" />
+
     </LinearLayout>
+
 </RelativeLayout>

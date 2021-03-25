@@ -17,6 +17,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
     private static int listIndex;
     private LinearLayout vLayout1[], aLayout, hLayout[];
     private TextView orderItem[], snacks[], amount[], price[], tvCustomerName, tvPhoneNumber, tvAddress;
+    private String sAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +29,13 @@ public class CustomerOrderActivity extends AppCompatActivity {
         tvPhoneNumber = findViewById(R.id.tvPhoneNumber);
         tvPhoneNumber.setText("電話號碼: " + globalvariable.ac[listIndex].getPhoneno());
         tvAddress = findViewById(R.id.tvAddress);
+        sAddress = "地址: ";
         if (globalvariable.ac[listIndex].getAddress().equals("不用填寫 (Not require to fill in)")) {
-            tvAddress.setText("地址: 外賣自取");
+            sAddress += "外賣自取";
         }else{
-            tvAddress.setText("地址: " + globalvariable.ac[listIndex].getAddress());
+            sAddress += globalvariable.ac[listIndex].getAddress();
         }
+        tvAddress.setText(sAddress);
 
         aLayout = findViewById(R.id.aLayout);
 
@@ -71,7 +74,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
             vLayout1[index] = new LinearLayout(this);
             vLayout1[index].setPadding(10,0,10,0);
             vLayout1[index].setOrientation(LinearLayout.VERTICAL);
-            vLayout1[index].addView(orderItem[orderIndex]);
+            vLayout1[index].addView(orderItem[index]);
 
             snacks = new TextView[7];
             for (int i = 0; i < 7; i++) {
