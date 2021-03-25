@@ -16,7 +16,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
 
     private static int listIndex;
     private LinearLayout vLayout1[], aLayout, hLayout[];
-    private TextView orderItem[], snacks[], amount[], price[], tvCustomerName, tvPhoneNumber, tvAddress;
+    private TextView orderItem[], snacks[], amount[], price[], totalPrice, tvCustomerName, tvPhoneNumber, tvAddress;
     private String sAddress;
 
     @Override
@@ -24,6 +24,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_order);
 
+        System.out.println(globalvariable.numOfOrder);
         tvCustomerName = findViewById(R.id.tvCustomerName);
         tvCustomerName.setText("顧客名稱: " + globalvariable.ac[listIndex].getLoginname());
         tvPhoneNumber = findViewById(R.id.tvPhoneNumber);
@@ -45,7 +46,15 @@ public class CustomerOrderActivity extends AppCompatActivity {
         amount = new TextView[6];
         price =  new TextView[6];
 
+        totalPrice = new TextView(this);
+        totalPrice.setTextSize(20);
+        totalPrice.setGravity(Gravity.RIGHT);
+        RestaurantMainActivity restaurantMainActivity = new RestaurantMainActivity();
+        totalPrice.setText("總金額: $" + restaurantMainActivity.getTotalPrice(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum()));
+
         info(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum());
+
+        aLayout.addView(totalPrice);
     }
 
     public static void setListIndex(int input) {
@@ -56,7 +65,6 @@ public class CustomerOrderActivity extends AppCompatActivity {
         int index = 0;
         for (int orderIndex = start; (orderIndex <= end) && ((showNoodleName(orderIndex) != null) || (checkOtherItem(orderIndex))); orderIndex++) {
 
-            System.out.println(orderIndex);
             if(showNoodleName(orderIndex) != null) {
                 orderItem[index] = new TextView(this);
                 orderItem[index].setTextSize(20);
@@ -65,8 +73,8 @@ public class CustomerOrderActivity extends AppCompatActivity {
                 for (int i = 0; i < 7; i++) {
                     if (showOtherItem(orderIndex, i) != null) {
                         orderItem[index] = new TextView(this);
+                        orderItem[index].setTextSize(20);
                         orderItem[index].setText(showOtherItem(orderIndex, i));
-                        System.out.println(showOtherItem(orderIndex, i));
                         break;
                     }
                 }
@@ -76,14 +84,18 @@ public class CustomerOrderActivity extends AppCompatActivity {
             vLayout1[index].setOrientation(LinearLayout.VERTICAL);
             vLayout1[index].addView(orderItem[index]);
 
-            snacks = new TextView[7];
-            for (int i = 0; i < 7; i++) {
-                if (showOtherItem(orderIndex, i) != null) {
-                    snacks[i] = new TextView(this);
-                    snacks[i].setText(showOtherItem(orderIndex, i));
-                    vLayout1[index].addView(snacks[i]);
+            if (showNoodleName(orderIndex) != null) {
+                snacks = new TextView[7];
+                for (int i = 0; i < 7; i++) {
+                    if (showOtherItem(orderIndex, i) != null) {
+                        snacks[index] = new TextView(this);
+                        snacks[index].setText(showOtherItem(orderIndex, i));
+                        break;
+                    }
                 }
+                vLayout1[index].addView(snacks[index]);
             }
+
             amount[index] = new TextView(this);
             amount[index].setTextSize(20);
             amount[index].setText(String.valueOf(globalvariable.ordering[orderIndex].getOrder_amount()) + "x");
@@ -106,17 +118,17 @@ public class CustomerOrderActivity extends AppCompatActivity {
     public String showNoodleName(int index) {
         String output = null;
         if (globalvariable.ordering[index].getTypeOfNoodle().equals("white") ) {
-            output = "白天王拉麵 ";
+            output = "白天王拉麵";
+        }else if (globalvariable.ordering[index].getTypeOfNoodle().equals("red") ) {
+            output = "赤天王拉麵";
+        }else if (globalvariable.ordering[index].getTypeOfNoodle().equals("black")) {
+            output = "黑天王拉麵";
+        }else if (globalvariable.ordering[index].getTypeOfNoodle().equals("limited")) {
+            output = "限定天王拉麵";
+        }else if (globalvariable.ordering[index].getTypeOfNoodle().equals("null")) {
+            output = null;
         }
-        if (globalvariable.ordering[index].getTypeOfNoodle().equals("red") ) {
-            output = "赤天王拉麵 ";
-        }
-        if (globalvariable.ordering[index].getTypeOfNoodle().equals("black")) {
-            output = "黑天王拉麵 ";
-        }
-        if (globalvariable.ordering[index].getTypeOfNoodle().equals("limited")) {
-            output = "限定天王拉麵 ";
-        }
+
         return output;
     }
 
@@ -153,6 +165,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
                 output = false;
             }else{
                 output = true;
+                break;
             }
         }
         return output;
