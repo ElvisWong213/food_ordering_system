@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".changeOrder"></activity>
+        <activity android:name=".privacy"></activity>
+        <activity android:name=".shop" />
+        <activity android:name=".changeOrder" />
         <activity android:name=".CustomerOrderActivity" />
         <activity android:name=".drinkpage" />
         <activity android:name=".snackpage" />
