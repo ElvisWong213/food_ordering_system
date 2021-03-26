@@ -111,7 +111,6 @@ public class CustomerOrderActivity extends AppCompatActivity {
                         snacks[index] = new TextView(this);
                         snacks[index].setText(showOtherItem(orderIndex, i));
                         vLayout1[index].addView(snacks[index]);
-                        break;
                     }
                 }
             }
