@@ -19,33 +19,91 @@ import java.util.ArrayList;
 
 public class RestaurantMainActivity extends AppCompatActivity{
 
-    private ListView lvMenu;
+    private ListView lvDoMenu, lvDoneMenu;
+    private account[] doList = new account[globalvariable.maxnumofac];
+    private account[] doneList = new account[globalvariable.maxnumofac];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_main);
 
-        lvMenu = findViewById(R.id.Menu);
+        lvDoMenu = findViewById(R.id.doMenu);
+        lvDoneMenu = findViewById(R.id.doneMenu);
 
-        ArrayList<String> nameList = new ArrayList();
-        ArrayList<String> priceList = new ArrayList();
-        ArrayList<String> typeList = new ArrayList();
+        ArrayList<String> doNameList = new ArrayList();
+        ArrayList<String> doPriceList = new ArrayList();
+        ArrayList<String> doTypeList = new ArrayList();
 
+        ArrayList<String> doneNameList = new ArrayList();
+        ArrayList<String> donePriceList = new ArrayList();
+        ArrayList<String> doneTypeList = new ArrayList();
+
+        int doListIndex = 0;
+        int doneListIndex = 0;
         for (int i = 0; i < globalvariable.numOfac; i++) {
-            nameList.add(globalvariable.ac[i].getLoginname());
-            priceList.add(String.valueOf(getTotalPrice(globalvariable.ac[i].getStartnum(), globalvariable.ac[i].getEndnum())));
-            if (globalvariable.ac[i].getAddress().equals("不用填寫 (Not require to fill in)")) {
-                typeList.add("自取");
+            if (!globalvariable.ac[i].getDone()) {
+                doList[doListIndex] = globalvariable.ac[i];
+                doListIndex++;
+                doNameList.add(globalvariable.ac[i].getLoginname());
+                doPriceList.add(String.valueOf(getTotalPrice(globalvariable.ac[i].getStartnum(), globalvariable.ac[i].getEndnum())));
+                if (globalvariable.ac[i].getAddress().equals("不用填寫 (Not require to fill in)")) {
+                    doTypeList.add("自取");
+                }else{
+                    doTypeList.add("外賣");
+                }
             }else{
-                typeList.add("外賣");
+                doneList[doneListIndex] = globalvariable.ac[i];
+                doneListIndex++;
+                doneNameList.add(globalvariable.ac[i].getLoginname());
+                donePriceList.add(String.valueOf(getTotalPrice(globalvariable.ac[i].getStartnum(), globalvariable.ac[i].getEndnum())));
+                if (globalvariable.ac[i].getAddress().equals("不用填寫 (Not require to fill in)")) {
+                    doneTypeList.add("自取");
+                }else{
+                    doneTypeList.add("外賣");
+                }
             }
 
         }
-        MyAdapter adapter = new MyAdapter(this, nameList.toArray(new String[0]), priceList.toArray(new String[0]), typeList.toArray(new String[0]));
-        lvMenu.setAdapter(adapter);
-        lvMenu.setOnItemClickListener(onClickListView);
+        MyAdapter doAdapter = new MyAdapter(this, doNameList.toArray(new String[0]), doPriceList.toArray(new String[0]), doTypeList.toArray(new String[0]));
+        lvDoMenu.setAdapter(doAdapter);
+        lvDoMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it = new Intent();
+                it.setClass(RestaurantMainActivity.this,CustomerOrderActivity.class);
+                CustomerOrderActivity.setListIndex(position);
+                CustomerOrderActivity.setAcArray(doList);
+                cleanArray();
+                startActivity(it);
+                finish();
+            }
 
+        });
+
+        MyAdapter doneAdapter = new MyAdapter(this, doneNameList.toArray(new String[0]), donePriceList.toArray(new String[0]), doneTypeList.toArray(new String[0]));
+        lvDoneMenu.setAdapter(doneAdapter);
+        lvDoneMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it = new Intent();
+                it.setClass(RestaurantMainActivity.this,CustomerOrderActivity.class);
+                CustomerOrderActivity.setListIndex(position);
+                CustomerOrderActivity.setAcArray(doneList);
+                cleanArray();
+                startActivity(it);
+                finish();
+            }
+
+        });
+
+    }
+
+    public void cleanArray() {
+        for (int i = 0; i < globalvariable.maxnumofac; i++) {
+            doneList[i] = null;
+            doList[i] = null;
+        }
     }
 
     public int getTotalPrice(int start, int end) {
@@ -55,18 +113,6 @@ public class RestaurantMainActivity extends AppCompatActivity{
         }
         return total;
     }
-
-    private AdapterView.OnItemClickListener onClickListView = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent it = new Intent();
-            it.setClass(RestaurantMainActivity.this,CustomerOrderActivity.class);
-            CustomerOrderActivity.setListIndex(position);
-            startActivity(it);
-            finish();
-        }
-
-    };
 
     class MyAdapter extends ArrayAdapter<String> {
 

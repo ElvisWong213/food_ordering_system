@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Space;
@@ -17,30 +19,31 @@ public class CustomerOrderActivity extends AppCompatActivity {
     private static int listIndex;
     private LinearLayout vLayout1[], aLayout, hLayout[];
     private TextView orderItem[], snacks[], amount[], price[], totalPrice, tvCustomerName, tvPhoneNumber, tvAddress, tvTool, extra;
+    private Button bFinish;
     private String sAddress, sTool;
+    private static account[] acArray = new account[globalvariable.maxnumofac];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_order);
 
-        System.out.println(globalvariable.numOfOrder);
         tvCustomerName = findViewById(R.id.tvCustomerName);
-        tvCustomerName.setText("顧客名稱: " + globalvariable.ac[listIndex].getLoginname());
+        tvCustomerName.setText("顧客名稱: " + acArray[listIndex].getLoginname());
         tvPhoneNumber = findViewById(R.id.tvPhoneNumber);
-        tvPhoneNumber.setText("電話號碼: " + globalvariable.ac[listIndex].getPhoneno());
+        tvPhoneNumber.setText("電話號碼: " + acArray[listIndex].getPhoneno());
         tvAddress = findViewById(R.id.tvAddress);
         sAddress = "";
-        if (globalvariable.ac[listIndex].getAddress().equals("不用填寫 (Not require to fill in)")) {
+        if (acArray[listIndex].getAddress().equals("不用填寫 (Not require to fill in)")) {
             sAddress += "外賣自取";
         }else{
-            sAddress += globalvariable.ac[listIndex].getAddress();
+            sAddress += acArray[listIndex].getAddress();
         }
         tvAddress.setText(sAddress);
 
         tvTool = findViewById(R.id.tvTool);
         sTool = "餐具: ";
-        if (globalvariable.ac[listIndex].getTool()) {
+        if (acArray[listIndex].getTool()) {
             sTool += "需要";
         }else{
             sTool += "不需要";
@@ -49,11 +52,11 @@ public class CustomerOrderActivity extends AppCompatActivity {
 
         aLayout = findViewById(R.id.aLayout);
 
-        vLayout1 = new LinearLayout[6];
-        hLayout = new LinearLayout[6];
-        orderItem = new TextView[6];
-        amount = new TextView[6];
-        price =  new TextView[6];
+        vLayout1 = new LinearLayout[7];
+        hLayout = new LinearLayout[7];
+        orderItem = new TextView[7];
+        amount = new TextView[7];
+        price =  new TextView[7];
 
         totalPrice = new TextView(this);
         totalPrice.setTextSize(20);
@@ -62,19 +65,45 @@ public class CustomerOrderActivity extends AppCompatActivity {
         extra = new TextView(this);
         extra.setTextSize(15);
         extra.setGravity(Gravity.RIGHT);
-        if (globalvariable.ac[listIndex].getAddress().equals("不用填寫 (Not require to fill in)")) {
+        if (acArray[listIndex].getAddress().equals("不用填寫 (Not require to fill in)")) {
             extra.setText("免運費");
 
-            totalPrice.setText("總金額: $" + restaurantMainActivity.getTotalPrice(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum()));
+            totalPrice.setText("總金額: $" + restaurantMainActivity.getTotalPrice(acArray[listIndex].getStartnum(), acArray[listIndex].getEndnum()));
         }else{
             extra.setText("運費: $20");
-            totalPrice.setText("總金額: $" + (restaurantMainActivity.getTotalPrice(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum()) + 20));
+            totalPrice.setText("總金額: $" + (restaurantMainActivity.getTotalPrice(acArray[listIndex].getStartnum(), acArray[listIndex].getEndnum()) + 20));
         }
 
-        info(globalvariable.ac[listIndex].getStartnum(), globalvariable.ac[listIndex].getEndnum());
+        info(acArray[listIndex].getStartnum(), acArray[listIndex].getEndnum());
 
         aLayout.addView(extra);
         aLayout.addView(totalPrice);
+
+        bFinish = findViewById(R.id.bFinish);
+        bFinish.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < globalvariable.maxnumofac; i++) {
+                    if (acArray[listIndex].equals(globalvariable.ac[i])) {
+                        globalvariable.ac[i].setDone(true);
+                    }
+                }
+                for (int i = 0; i < globalvariable.maxnumofac; i++) {
+                    acArray[i] = null;
+                }
+                Intent it = new Intent();
+                it.setClass(CustomerOrderActivity.this, RestaurantMainActivity.class);
+                startActivity(it);
+                finish();
+            }
+        });
+    }
+
+    public static void setAcArray(account[] input) {
+        for (int i = 0; i < input.length; i++) {
+            acArray[i] = input[i];
+        }
     }
 
     public static void setListIndex(int input) {

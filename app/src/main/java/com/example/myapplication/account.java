@@ -15,6 +15,7 @@ public class account{
     private String CVC;
     private String validFrom;
     private Boolean tool;
+    private Boolean done;
 
     account(String loginname, String password, String address, String phoneno, String creditCard, String CVC, String validFrom){
         this.loginname = loginname;
@@ -24,7 +25,14 @@ public class account{
         this.creditCard = creditCard;
         this.CVC = CVC;
         this.validFrom = validFrom;
+        done = false;
 
+    }
+    public void setDone(Boolean input) {
+        done = input;
+    }
+    public Boolean getDone() {
+        return done;
     }
     public void setTool(Boolean input) {
         tool = input;
