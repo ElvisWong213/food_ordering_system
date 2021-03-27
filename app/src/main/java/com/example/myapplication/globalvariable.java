@@ -11,5 +11,6 @@ public class globalvariable {
     public static account[] ac = new account[maxnumofac];
     public static boolean firstOrder = true;
     public static account[] registeredInfo = new account[maxnumofac];
+    public static boolean customerViewRecord = false;
 
 }

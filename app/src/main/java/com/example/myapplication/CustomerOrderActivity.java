@@ -80,7 +80,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
         aLayout.addView(totalPrice);
 
         bFinish = findViewById(R.id.bFinish);
-        if (acArray[listIndex].getDone()){
+        if (acArray[listIndex].getDone() || globalvariable.customerViewRecord){
             bFinish.setVisibility(View.INVISIBLE);
         }
         bFinish.setOnClickListener(new View.OnClickListener() {

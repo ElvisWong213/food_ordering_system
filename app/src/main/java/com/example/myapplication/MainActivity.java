@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewshoppingcart.setOnClickListener(this);
         Button bLogout = findViewById(R.id.logout);
         bLogout.setOnClickListener(this);
+        Button bRecord = findViewById(R.id.record);
+        bRecord.setOnClickListener(this);
         Button shop = findViewById(R.id.shop);
         shop.setOnClickListener(this);
 
@@ -103,10 +105,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(it);
                 finish();
                 break;
+            case R.id.record:
+                globalvariable.customerViewRecord = true;
+                it.setClass(MainActivity.this,RestaurantMainActivity.class);
+                startActivity(it);
+                finish();
+                break;
             case R.id.shop:
                 it.setClass(MainActivity.this,shop.class);
                 startActivity(it);
                 finish();
+                break;
         }
     }
     public void setCart(){

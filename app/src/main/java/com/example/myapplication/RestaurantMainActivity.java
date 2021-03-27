@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 public class RestaurantMainActivity extends AppCompatActivity{
 
+    private TextView tvDone, tvNotDone;
     private ListView lvDoMenu, lvDoneMenu;
     private account[] doList = new account[globalvariable.maxnumofac];
     private account[] doneList = new account[globalvariable.maxnumofac];
@@ -27,6 +28,13 @@ public class RestaurantMainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_main);
+
+        tvDone = findViewById(R.id.tvDone);
+        tvNotDone = findViewById(R.id.tvNotDone);
+        if (globalvariable.customerViewRecord) {
+            tvDone.setVisibility(View.INVISIBLE);
+            tvNotDone.setVisibility(View.INVISIBLE);
+        }
 
         lvDoMenu = findViewById(R.id.doMenu);
         lvDoneMenu = findViewById(R.id.doneMenu);
@@ -150,9 +158,16 @@ public class RestaurantMainActivity extends AppCompatActivity{
     public void onBackPressed() {
         super.onBackPressed();
         Intent it = new Intent();
-        it.setClass(RestaurantMainActivity.this,LoginActivity.class);
-        startActivity(it);
-        finish();
+        if (globalvariable.customerViewRecord) {
+            globalvariable.customerViewRecord = false;
+            it.setClass(RestaurantMainActivity.this, MainActivity.class);
+            startActivity(it);
+            finish();
+        }else {
+            it.setClass(RestaurantMainActivity.this, LoginActivity.class);
+            startActivity(it);
+            finish();
+        }
     }
 
 }
