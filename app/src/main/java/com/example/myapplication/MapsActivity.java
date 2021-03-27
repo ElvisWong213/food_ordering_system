@@ -218,4 +218,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(MapsActivity.this,shop.class);
+        startActivity(it);
+        finish();
+    }
 }

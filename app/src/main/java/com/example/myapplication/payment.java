@@ -134,4 +134,13 @@ public class payment extends AppCompatActivity implements View.OnClickListener {
     public static void setToolCheck(Boolean input) {
         toolCheck = input;
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(payment.this,settlement.class);
+        startActivity(it);
+        finish();
+    }
 }

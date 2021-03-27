@@ -26,4 +26,13 @@ public class privacy extends AppCompatActivity implements View.OnClickListener {
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(privacy.this,shop.class);
+        startActivity(it);
+        finish();
+    }
 }

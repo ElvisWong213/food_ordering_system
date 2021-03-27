@@ -212,4 +212,12 @@ public class redpage extends AppCompatActivity implements View.OnClickListener {
                 break;
         }
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(redpage.this,MainActivity.class);
+        startActivity(it);
+        finish();
+    }
 }

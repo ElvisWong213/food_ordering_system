@@ -124,4 +124,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            dot.setVisibility(View.VISIBLE);
         }
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(MainActivity.this,LoginActivity.class);
+        startActivity(it);
+        finish();
+    }
 }

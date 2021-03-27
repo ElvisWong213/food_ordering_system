@@ -212,4 +212,12 @@ public class lz120page extends AppCompatActivity implements View.OnClickListener
                 break;
         }
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(lz120page.this,MainActivity.class);
+        startActivity(it);
+        finish();
+    }
 }

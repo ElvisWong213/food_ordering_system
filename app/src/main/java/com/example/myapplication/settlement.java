@@ -140,4 +140,13 @@ public class settlement extends AppCompatActivity implements View.OnClickListene
         }
         return true;
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(settlement.this,MainActivity.class);
+        startActivity(it);
+        finish();
+    }
 }

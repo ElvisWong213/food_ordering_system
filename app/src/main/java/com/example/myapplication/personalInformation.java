@@ -148,4 +148,13 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
         alert.setTitle("是否確認傳送訂單 ?");
         alert.show();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(personalInformation.this,payment.class);
+        startActivity(it);
+        finish();
+    }
 }

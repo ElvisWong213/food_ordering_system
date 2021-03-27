@@ -106,4 +106,12 @@ public class drinkpage extends AppCompatActivity implements View.OnClickListener
 
         }
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(drinkpage.this,MainActivity.class);
+        startActivity(it);
+        finish();
+    }
 }

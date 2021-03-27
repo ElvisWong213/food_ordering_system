@@ -57,4 +57,12 @@ public class shop extends AppCompatActivity implements View.OnClickListener {
                 break;
         }
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(shop.this,MainActivity.class);
+        startActivity(it);
+        finish();
+    }
 }

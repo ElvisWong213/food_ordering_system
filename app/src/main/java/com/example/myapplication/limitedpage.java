@@ -213,4 +213,13 @@ public class limitedpage extends AppCompatActivity implements View.OnClickListen
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(limitedpage.this,MainActivity.class);
+        startActivity(it);
+        finish();
+    }
 }

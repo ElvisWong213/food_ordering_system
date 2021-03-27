@@ -149,4 +149,12 @@ public class changeOrder extends AppCompatActivity implements View.OnClickListen
 
         }return orderlist;
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent it = new Intent();
+        it.setClass(changeOrder.this,settlement.class);
+        startActivity(it);
+        finish();
+    }
 }
