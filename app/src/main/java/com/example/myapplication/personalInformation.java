@@ -57,10 +57,12 @@ public class personalInformation extends AppCompatActivity implements View.OnCli
         {
             inputCreditCard.setHint("Credit Card Number");
             inputCreditCard.setEnabled(true);
-            inputCVC.setText("Valid From");
             inputCVC.setEnabled(true);
-            inputvalidfrom.setText("CVC");
             inputvalidfrom.setEnabled(true);
+            if(!globalvariable.login) {
+                inputCVC.setText("Valid From");
+                inputvalidfrom.setText("CVC");
+            }
         }
         else
         {
